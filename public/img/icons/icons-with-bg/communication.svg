@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" version="1.1"
+  viewBox="0 0 48 48">
+  <defs>
+    <radialGradient id="serviceCommunication_svg__b" cx="100%" cy="0%" r="141.421%" fx="100%" fy="0%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".382" />
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+    </radialGradient>
+    <path id="serviceCommunication_svg__a"
+      d="M14.77 0h18.46C41.389 0 48 6.612 48 14.77v18.46C48 41.389 41.388 48 33.23 48H14.77C6.611 48 0 41.388 0 33.23V14.77C0 6.611 6.612 0 14.77 0z" />
+  </defs>
+  <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+    <g>
+      <use fill="#007AFF" xlink:href="#serviceCommunication_svg__a" />
+      <use fill="url(#serviceCommunication_svg__b)" style="mix-blend-mode:lighten"
+        xlink:href="#serviceCommunication_svg__a" />
+    </g>
+    <path fill="#FFF"
+      d="M15 28.546c0-.553.439-1 1.004-1h.648c.555 0 1.004.446 1.004 1V32c0 .552-.438 1-1.004 1h-.648A1.001 1.001 0 0115 32v-3.454zm4.781-3.826a.991.991 0 011.004-.993h.648a1 1 0 011.005.993v7.288a.991.991 0 01-1.005.992h-.648a1 1 0 01-1.004-.992V24.72zm4.782-4.354a.997.997 0 011.004-1.002h.648c.554 0 1.004.453 1.004 1.002v11.631A.997.997 0 0126.215 33h-.648a1.007 1.007 0 01-1.005-1.003v-11.63zm4.78-4.373A.992.992 0 0130.349 15h.648a.999.999 0 011.004.993v16.014a.992.992 0 01-1.004.993h-.648a.999.999 0 01-1.004-.993V15.993z" />
+  </g>
+</svg>

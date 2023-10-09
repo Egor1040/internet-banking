@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" version="1.1"
+  viewBox="0 0 48 48">
+  <defs>
+    <radialGradient id="serviceTransfers_svg__b" cx="100%" cy="0%" r="141.421%" fx="100%" fy="0%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".382" />
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+    </radialGradient>
+    <path id="serviceTransfers_svg__a"
+      d="M14.77 0h18.46C41.389 0 48 6.612 48 14.77v18.46C48 41.389 41.388 48 33.23 48H14.77C6.611 48 0 41.388 0 33.23V14.77C0 6.611 6.612 0 14.77 0z" />
+  </defs>
+  <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+    <g>
+      <use fill="#4CD964" xlink:href="#serviceTransfers_svg__a" />
+      <use fill="url(#serviceTransfers_svg__b)" style="mix-blend-mode:lighten" xlink:href="#serviceTransfers_svg__a" />
+    </g>
+    <path fill="#FFF" fill-rule="nonzero"
+      d="M25.598 18.232a.556.556 0 01.793 0l6.639 6.763a.556.556 0 010 .779l-6.639 6.764a.556.556 0 01-.793 0l-.965-.983a.556.556 0 010-.778l4.9-5.004a.556.556 0 000-.777l-4.9-5.003a.556.556 0 010-.778l.965-.983zm-7.417 0a.556.556 0 01.793 0l6.639 6.763a.556.556 0 010 .779l-6.639 6.764a.556.556 0 01-.793 0l-.965-.983a.556.556 0 010-.778l4.9-5.004a.556.556 0 000-.777l-4.9-5.003a.556.556 0 010-.778l.965-.983z" />
+  </g>
+</svg>

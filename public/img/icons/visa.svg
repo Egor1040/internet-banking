@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="a" x1="-233.561%" x2="372.942%" y1="26.058%" y2="23.566%">
+      <stop offset="0%" stop-color="#191E5F" />
+      <stop offset="100%" stop-color="#142787" stop-opacity=".818" />
+    </linearGradient>
+    <linearGradient id="b" x1="-182.481%" x2="225.539%" y1="27.757%" y2="24.759%">
+      <stop offset="0%" stop-color="#191E5F" />
+      <stop offset="100%" stop-color="#142787" stop-opacity=".818" />
+    </linearGradient>
+    <linearGradient id="c" x1="-230.002%" x2="110.954%" y1="26.836%" y2="23.739%">
+      <stop offset="0%" stop-color="#191E5F" />
+      <stop offset="100%" stop-color="#142787" stop-opacity=".818" />
+    </linearGradient>
+    <linearGradient id="d" x1="-13.859%" x2="265.571%" y1="26.026%" y2="23.531%">
+      <stop offset="0%" stop-color="#191E5F" />
+      <stop offset="100%" stop-color="#142787" stop-opacity=".818" />
+    </linearGradient>
+    <linearGradient id="e" x1="22.862%" x2="428.639%" y1="47.883%" y2="43.303%">
+      <stop offset="0%" stop-color="#191E5F" />
+      <stop offset="100%" stop-color="#142787" stop-opacity=".818" />
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <circle cx="23.969" cy="23.969" r="23.969" fill="#FFF" />
+    <path fill="url(#a)" d="M14.467.12h2.909l-1.82 10.576h-2.908z" transform="translate(6 19)" />
+    <path fill="url(#b)"
+      d="M26.12.461a7.573 7.573 0 0 0-2.607-.444c-2.874 0-4.899 1.435-4.916 3.49-.016 1.52 1.445 2.368 2.549 2.874 1.132.518 1.513.85 1.507 1.312-.007.709-.904 1.033-1.74 1.033-1.164 0-1.783-.16-2.738-.555l-.375-.168-.408 2.367c.68.295 1.936.551 3.24.565 3.058 0 5.043-1.419 5.065-3.614.011-1.203-.764-2.119-2.442-2.874-1.017-.489-1.64-.815-1.633-1.31 0-.44.527-.91 1.666-.91.951-.015 1.64.19 2.177.405l.26.122L26.12.46"
+      transform="translate(6 19)" />
+    <path fill="url(#c)"
+      d="M33.579.211H31.33c-.696 0-1.217.188-1.523.877l-4.32 9.693h3.055s.5-1.303.612-1.59l3.725.005c.087.37.354 1.585.354 1.585h2.7L33.578.21zm-3.587 6.817l1.159-2.956c-.017.028.239-.613.386-1.01l.196.912.674 3.054h-2.415z"
+      transform="translate(6 19)" />
+    <path fill="url(#d)"
+      d="M10.223.209L7.376 7.42l-.304-1.466c-.53-1.69-2.182-3.52-4.028-4.436l2.604 9.25 3.077-.004L13.305.209h-3.082"
+      transform="translate(6 19)" />
+    <path fill="url(#e)"
+      d="M4.734.202H.044l-.038.22c3.65.876 6.064 2.991 7.066 5.533l-1.02-4.86c-.176-.67-.687-.87-1.318-.893"
+      transform="translate(6 19)" />
+  </g>
+</svg>
