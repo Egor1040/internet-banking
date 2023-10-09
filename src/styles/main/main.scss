@@ -1,4 +1,128 @@
-// color #757575 for input
-// color for descr #999999
-// color for line #4d4d4d
-// color for btn pay #5b5b5b
+.main {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    padding-top: 24px;
+}
+
+.service-menu {
+    background-color: #212121;
+    width: 280px;
+}
+
+.fast-payments {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.fast-payment {
+    background-color: #212121;
+    padding: 20px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 400;
+        margin-bottom: 16px;
+    }
+
+    &__icon-title {
+        display: flex;
+        width: 24px;
+    }
+
+    &__title {
+        font-weight: 400;
+        font-size: 1rem;
+    }
+
+    &__main {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__field {
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+
+    &__input {
+        background-color: inherit;
+        border: none;
+        font-size: 16px;
+        border-bottom: 1px solid #4d4d4d;
+        transition: all 0.1s ease 0s;
+        width: 100%;
+        color: inherit;
+        padding-right: 24px;
+
+        &::placeholder {
+            color: #757575;
+        }
+
+        &:hover {
+            border-bottom: 2px solid #adadad;
+        }
+
+        &:focus {
+            border-bottom: 2px solid #8dc641;
+            outline: none;
+        }
+    }
+
+    &__icon-field {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+    }
+
+    &__button-pay {
+        display: flex;
+        justify-content: center;
+        flex: 0 0 auto;
+        background-color: #5b5b5b;
+        border-radius: 8px;
+        width: 40px;
+        height: 40px;
+
+        img {
+            width: 24px;
+        }
+    }
+
+    &__icon-arrow {
+    }
+
+    &__footer {
+        margin-top: 10px;
+    }
+
+    &__description {
+        font-size: 12px;
+        color: #999999;
+    }
+
+    &__operator {
+        display: flex;
+        position: absolute;
+    }
+
+    &__icon-country {
+        width: 24px;
+    }
+
+    &__operator-number {
+    }
+
+    &__more-operators {
+    }
+
+    &__data-field {
+    }
+}

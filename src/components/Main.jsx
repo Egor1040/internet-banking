@@ -1,16 +1,19 @@
-import React from 'react';
 import '../styles/main/main.scss';
+import ServiceMenu from './ServiceMenu';
 
 const Main = () => {
     return (
         <main className='main'>
+
+            <ServiceMenu />
+
             <div className="fast-payments">
                 <div className="fast-payment">
                     <div className="fast-payment__header">
                         <div className="fast-payment__icon-title">
                             <img src='img/icons/icons-with-bg/card.svg' alt='multicolor-card' />
                         </div>
-                        <div className="fast-payment__title">Переказ на картку</div>
+                        <h2 className="fast-payment__title">Переказ на картку</h2>
                     </div>
                     <div className="fast-payment__main">
                         <label className='fast-payment__field'>
@@ -41,12 +44,12 @@ const Main = () => {
                         <div className="fast-payment__icon-title">
                             <img src='img/icons/icons-with-bg/phone.svg' alt='multicolor-card' />
                         </div>
-                        <div className="fast-payment__title">Переказ на картку</div>
+                        <h2 className="fast-payment__title">Поповнення мобільного</h2>
                     </div>
                     <div className="fast-payment__main">
                         <label className='fast-payment__field'>
                             <div className='fast-payment__operator'>
-                                <div className="fast-payment__icon-field">
+                                <div className="fast-payment__icon-country">
                                     <img src='img/icons/ukrainian-flag.svg' alt='gray-card' />
                                 </div>
                                 <span className="fast-payment__operator-number">+380</span>
@@ -55,7 +58,7 @@ const Main = () => {
                                 </div>
                             </div>
                             <input
-                                className="fast-payment__data-field"
+                                className="fast-payment__input"
                                 type='text'
                                 name='data-payment'
                                 placeholder='000000000'
@@ -73,15 +76,15 @@ const Main = () => {
                         <div className="fast-payment__icon-title">
                             <img src='img/icons/icons-with-bg/communication.svg' alt='multicolor-card' />
                         </div>
-                        <div className="fast-payment__title">Переказ на картку</div>
+                        <h2 className="fast-payment__title">Платіж</h2>
                     </div>
                     <div className="fast-payment__main">
-                        <label className='fast-payment__field'>
+                        <label className='fast-payment__field fast-payment__field_search'>
                             <div className="fast-payment__icon-field">
                                 <img src='img/icons/search.svg' alt='gray-card' />
                             </div>
                             <input
-                                className="fast-payment__data-field"
+                                className="fast-payment__input"
                                 type='text'
                                 name='data-payment'
                                 placeholder='UAXXXXXXXXXXXXXXXX'
