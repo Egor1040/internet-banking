@@ -8,14 +8,14 @@ const Main = () => {
             <ServiceMenu />
 
             <div className="fast-payments">
-                <div className="fast-payment">
+                <div className="fast-payment fast-payment_transfer-card">
                     <div className="fast-payment__header">
                         <div className="fast-payment__icon-title">
                             <img src='img/icons/icons-with-bg/card.svg' alt='multicolor-card' />
                         </div>
                         <h2 className="fast-payment__title">Переказ на картку</h2>
                     </div>
-                    <div className="fast-payment__main">
+                    <form className="fast-payment__main">
                         <label className='fast-payment__field'>
                             <input
                                 className="fast-payment__input"
@@ -27,26 +27,26 @@ const Main = () => {
                                 <img src='img/icons/gray-card.svg' alt='gray-card' />
                             </div>
                         </label>
-                        <div className="fast-payment__button-pay">
+                        <button className="fast-payment__button-pay">
                             <div className="fast-payment__icon-arrow">
                                 <img src="img/icons/arrow.svg" alt="arrow" />
                             </div>
-                        </div>
-                    </div>
+                        </button>
+                    </form>
                     <div className="fast-payment__footer">
                         <div className="fast-payment__description">
                             VISA/MasterCard українських та закордонних банків
                         </div>
                     </div>
                 </div>
-                <div className="fast-payment">
+                <div className="fast-payment fast-payment_mobile-pay">
                     <div className="fast-payment__header">
                         <div className="fast-payment__icon-title">
                             <img src='img/icons/icons-with-bg/phone.svg' alt='multicolor-card' />
                         </div>
                         <h2 className="fast-payment__title">Поповнення мобільного</h2>
                     </div>
-                    <div className="fast-payment__main">
+                    <form className="fast-payment__main">
                         <label className='fast-payment__field'>
                             <div className='fast-payment__operator'>
                                 <div className="fast-payment__icon-country">
@@ -64,22 +64,22 @@ const Main = () => {
                                 placeholder='000000000'
                             />
                         </label>
-                        <div className="fast-payment__button-pay">
+                        <button className="fast-payment__button-pay">
                             <div className="fast-payment__icon-arrow">
                                 <img src="img/icons/arrow.svg" alt="arrow" />
                             </div>
-                        </div>
-                    </div>
+                        </button>
+                    </form>
                 </div>
-                <div className="fast-payment">
+                <div className="fast-payment fast-payment_requisites-pay">
                     <div className="fast-payment__header">
                         <div className="fast-payment__icon-title">
                             <img src='img/icons/icons-with-bg/communication.svg' alt='multicolor-card' />
                         </div>
                         <h2 className="fast-payment__title">Платіж</h2>
                     </div>
-                    <div className="fast-payment__main">
-                        <label className='fast-payment__field fast-payment__field_search'>
+                    <form className="fast-payment__main">
+                        <label className='fast-payment__field'>
                             <div className="fast-payment__icon-field">
                                 <img src='img/icons/search.svg' alt='gray-card' />
                             </div>
@@ -90,15 +90,46 @@ const Main = () => {
                                 placeholder='UAXXXXXXXXXXXXXXXX'
                             />
                         </label>
-                        <div className="fast-payment__button-pay">
+                        <button className="fast-payment__button-pay">
                             <div className="fast-payment__icon-arrow">
                                 <img src="img/icons/arrow.svg" alt="arrow" />
                             </div>
-                        </div>
-                    </div>
+                        </button>
+                    </form>
                     <div className="fast-payment__footer">
                         <div className="fast-payment__description">
                             IBAN, ЄДРПОУ, номер р/рахунку або назва одержувача
+                        </div>
+                    </div>
+                </div>
+                <div className="fast-payment fast-payment_news-bank">
+                    <div className="fast-payment__header">
+                        <div className="fast-payment__icon-title">
+                            <img src='img/icons/bullhorn.svg' alt='bullhorn' />
+                        </div>
+                        <h2 className="fast-payment__title">Що нового у Приват24</h2>
+                        <div className="fast-payment__icon-arrow">
+                            <img src="img/icons/arrow.svg" alt="arrow" />
+                        </div>
+                    </div>
+                    <div className="fast-payment__main">
+                        <div className="fast-payment__news">
+                            <div className="fast-payment__news-item">
+                                <div className="fast-payment__news-icon">
+                                    <img src="img/icons/icons-with-bg/wallet.svg" alt="walet" />
+                                </div>
+                                <div className="fast-payment__news-text">
+                                    Міжнародна доставка карток 🌐
+                                </div>
+                            </div>
+                            <div className="fast-payment__news-item">
+                                <div className="fast-payment__news-icon">
+                                    <img src="img/icons/icons-with-bg/wallet.svg" alt="walet" />
+                                </div>
+                                <div className="fast-payment__news-text">
+                                    Доставка карток 💳
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

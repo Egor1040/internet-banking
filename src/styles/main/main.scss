@@ -20,12 +20,52 @@
     background-color: #212121;
     padding: 20px;
 
+    &_transfer-card {
+        .fast-payment {
+            &__input {
+                padding-left: 0;
+            }
+
+            &__icon-field {
+                left: initial;
+                right: 0;
+            }
+        }
+    }
+
+    &_mobile-pay {
+        .fast-payment {
+            &__input {
+                padding-left: 124px;
+            }
+        }
+    }
+
+    &_requisites-pay {
+    }
+
+    &_news-bank {
+        .fast-payment {
+            &__icon-arrow {
+                margin-left: auto;
+                border-radius: 50%;
+                transition: all 0.3s ease 0s;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #303030;
+                }
+            }
+        }
+    }
+
     &__header {
         display: flex;
         align-items: center;
         gap: 10px;
         font-weight: 400;
         margin-bottom: 16px;
+        width: 100%;
     }
 
     &__icon-title {
@@ -53,30 +93,35 @@
     &__input {
         background-color: inherit;
         border: none;
+        outline: none;
         font-size: 16px;
         border-bottom: 1px solid #4d4d4d;
-        transition: all 0.1s ease 0s;
+        transition: all 0.3s ease 0s;
         width: 100%;
         color: inherit;
-        padding-right: 24px;
+        padding: 8px 32px;
 
         &::placeholder {
             color: #757575;
         }
 
         &:hover {
-            border-bottom: 2px solid #adadad;
+            border-color: #adadad;
         }
 
         &:focus {
-            border-bottom: 2px solid #8dc641;
-            outline: none;
+            border-color: #8dc641;
+        }
+
+        &:invalid {
+            border: 2px solid red;
         }
     }
 
     &__icon-field {
+        display: flex;
         position: absolute;
-        right: 0;
+        left: 0;
         top: 50%;
         transform: translateY(-50%);
         width: 24px;
@@ -85,18 +130,30 @@
     &__button-pay {
         display: flex;
         justify-content: center;
+        align-items: center;
         flex: 0 0 auto;
-        background-color: #5b5b5b;
+        border: none;
+        background-color: #4d4d4d;
+        box-shadow:
+            #0000001f 0px 2px 4px 0px,
+            #0000001f 0px 0px 4px 0px;
         border-radius: 8px;
         width: 40px;
         height: 40px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
 
-        img {
-            width: 24px;
+        &:hover {
+            background-color: #5b5b5b;
+            box-shadow:
+                #0000001f 0px 4px 8px 0px,
+                #0000001f 0px 2px 8px 0px;
         }
     }
 
     &__icon-arrow {
+        display: flex;
+        width: 24px;
     }
 
     &__footer {
@@ -110,19 +167,53 @@
 
     &__operator {
         display: flex;
+        align-items: center;
+        gap: 10px;
         position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+
+        &::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 24px;
+            background-color: #4d4d4d;
+        }
     }
 
     &__icon-country {
-        width: 24px;
+        display: flex;
+        width: 16px;
     }
 
     &__operator-number {
     }
 
     &__more-operators {
+        display: flex;
     }
 
     &__data-field {
+    }
+
+    &__news {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    &__news-item {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__news-icon {
+        display: flex;
+        width: 24px;
+    }
+
+    &__news-text {
     }
 }
