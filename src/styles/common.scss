@@ -12,15 +12,84 @@ body {
     color: #e2e2e2;
     font-weight: 300;
     font-size: 16px;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
 }
 
 img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    height: 100%;
 }
 
 .container {
     max-width: 1030px;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+.service-menu {
+    background-color: #212121;
+    width: 280px;
+    height: 100%;
+    position: relative;
+}
+
+.service-items {
+    padding: 16px 0;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        background-color: #323232;
+
+        .service-submenu {
+            display: block;
+        }
+    }
+
+    &__main-icon {
+        display: flex;
+        width: 32px;
+    }
+
+    &__title {
+    }
+
+    &__icon-arrow {
+        display: flex;
+        width: 24px;
+        margin-left: auto;
+    }
+}
+
+.service-submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    z-index: 2;
+    background-color: #212121;
+    width: 280px;
+    height: 100%;
+    padding: 16px 0;
+    border-left: 1px solid #4d4d4d;
+    box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.20);
+
+    &_active {
+        display: block;
+    }
 }
