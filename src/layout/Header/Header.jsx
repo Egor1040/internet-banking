@@ -1,6 +1,7 @@
 import React from 'react';
-import '../styles/header/header.scss';
-import CurrencyExchange from './CurrencyExchange';
+import '../../layout/Header/header.scss';
+import CurrencyExchange from '../../components/CurrencyExchange/CurrencyExchange';
+import PaymentHistory from '../../components/PaymentHistory/PaymentHistory';
 
 const Header = () => {
     return (
@@ -16,9 +17,7 @@ const Header = () => {
                             <img src="img/icons/arrow.svg" alt="service-arrow" /> 
                         </div> 
                     </div>
-                    <span className="header-history">
-                        Історія платежів
-                    </span>
+                    <PaymentHistory/>
                 </div>
                 <div className="header-right">
                     <CurrencyExchange/>

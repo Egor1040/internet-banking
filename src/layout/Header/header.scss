@@ -33,6 +33,7 @@
         }
     }
     &-service {
+        position: relative;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -41,8 +42,12 @@
         &:hover .header-service__img img {
             transform: rotate(180deg);
         }
-        &:hover {
-            border-bottom: 1px solid #818181;
+        &:hover::after {
+            bottom: 0;
+            position: absolute;
+            content: '';
+            width: 100%;
+            border-bottom: 3px solid #818181;
         }
         &__img {
             margin-left: 8px;
@@ -55,40 +60,12 @@
             }
         }
     }
-    &-history {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        &:hover {
-            border-bottom: 1px solid #818181;
-        }
-    }
     &-right {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         width: 35%;
         height: 100%;
-    }
-    &-exchange {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        &:hover {
-            border-bottom: 1px solid #818181;
-        }
-        &__icon {
-            width: 24px;
-            height: 24px;
-            & img {
-                width: 100%;
-                height: 100%;
-            }
-        }
     }
     &-login {
         margin-left: 16px;
