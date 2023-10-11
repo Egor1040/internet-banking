@@ -103,7 +103,6 @@
 }
 
 .login {
-    margin-left: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -128,6 +127,7 @@
         fill: #629226;
     }
     &-wrap {
+        padding-left: 16px;
         border-left: 1px solid #595959;
     }
     &-img {

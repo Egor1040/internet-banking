@@ -1,4 +1,4 @@
-import './styles/common.scss';
+import './common.scss';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
