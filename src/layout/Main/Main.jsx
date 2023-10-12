@@ -1,7 +1,7 @@
 import { ServicesMenu, ServicesWidget } from '../../components';
 import './main.scss';
 
-const Main = () => {
+export const Main = () => {
     return (
         <main className='main'>
             <div className='container'>
@@ -16,5 +16,3 @@ const Main = () => {
         </main>
     );
 };
-
-export default Main;

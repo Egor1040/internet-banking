@@ -1,0 +1,23 @@
+.header-exchange {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    &:hover::after {
+        bottom: 0;
+        position: absolute;
+        content: '';
+        width: 100%;
+        border-bottom: 3px solid #818181;
+    }
+    &__icon {
+        width: 24px;
+        height: 24px;
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

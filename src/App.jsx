@@ -1,10 +1,10 @@
 import './common.scss';
-import Footer from './layout/Footer/Footer';
-import Main from './layout/Main/Main';
+import { Footer, Header, Main } from './layout';
 
 function App() {
     return (
         <div className="wrapper">
+            <Header />
             <Main />
             <Footer />
         </div>
