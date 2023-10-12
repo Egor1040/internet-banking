@@ -1,3 +1,4 @@
+import RenderElement from '../../../utils/hocs/RenderElement';
 import './serviceWidget.scss';
 
 export const ServiceWidget = ({ children, title, titleIcon, arrowIcon, descr }) => {
@@ -9,28 +10,23 @@ export const ServiceWidget = ({ children, title, titleIcon, arrowIcon, descr }) 
                     <img src={`img/icons/${titleIcon}`} alt='multicolor-card' />
                 </div>
                 <h2 className="service-widget__title">{title}</h2>
-                {
-                    arrowIcon
-                        ?
-                        <div className="service-widget__arrow-icon">
-                            <img src={`img/icons/${arrowIcon}`} alt="arrow" />
-                        </div>
-                        :
-                        false
-                }
+
+                <RenderElement data={arrowIcon}>
+                    <div className="service-widget__arrow-icon">
+                        <img src={`img/icons/${arrowIcon}`} alt="arrow" />
+                    </div>
+                </RenderElement>
+
             </div>
 
             {children}
 
-            {
-                descr
-                    ?
-                    <div className="service-widget__footer">
-                        <div className="service-widget__description">{descr}</div>
-                    </div>
-                    :
-                    false
-            }
+            <RenderElement data={descr}>
+                <div className="service-widget__footer">
+                    <div className="service-widget__description">{descr}</div>
+                </div>
+            </RenderElement>
+
         </div>
     );
 };
