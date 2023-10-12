@@ -1,62 +1,61 @@
-import { IconArrow } from '../../UI/IconArrow/IconArrow';
 import { ServiceItem } from '../ServiceItem/ServiceItem';
-import { ServiceSubmenu } from '../ServiceSubmenu/ServiceSubmenu';
-import './serviceMenu.scss';
+import { ServicesSubmenu } from '../ServicesSubmenu/ServicesSubmenu';
+import './servicesMenu.scss';
 
-export const ServiceMenu = () => {
+export const ServicesMenu = () => {
     return (
-        <div className="service-menu">
+        <div className="services-menu">
             <ServiceItem
                 title={'Перекази'}
-                icon={'icons-with-bg/arrows.svg'}
+                titleIcon={'icons-with-bg/arrows.svg'}
+                arrowIcon={'arrow.svg'}
             >
-                <ServiceSubmenu>
+                <ServicesSubmenu>
                     <ServiceItem
                         title={'Перекази на картку'}
-                        icon={'icons-with-bg/card.svg'}
+                        titleIcon={'icons-with-bg/card.svg'}
                     />
-                </ServiceSubmenu>
-                <IconArrow />
+                </ServicesSubmenu>
             </ServiceItem>
             <ServiceItem
                 title={'Платежі'}
-                icon={'icons-with-bg/hryvnia.svg'}
+                titleIcon={'icons-with-bg/hryvnia.svg'}
+                arrowIcon={'arrow.svg'}
             >
-                <ServiceSubmenu>
+                <ServicesSubmenu>
                     <ServiceItem
                         title={'Комунальні платежі'}
-                        icon={'icons-with-bg/communal.svg'}
+                        titleIcon={'icons-with-bg/communal.svg'}
                     />
                     <ServiceItem
                         title={'Інтернет та ТБ'}
-                        icon={'icons-with-bg/wifi.svg'}
+                        titleIcon={'icons-with-bg/wifi.svg'}
                     />
-                </ServiceSubmenu>
-                <IconArrow />
+                </ServicesSubmenu>
             </ServiceItem>
             <ServiceItem
                 title={'Зв\'язок'}
-                icon={'icons-with-bg/communication.svg'}
+                titleIcon={'icons-with-bg/communication.svg'}
+                arrowIcon={'arrow.svg'}
             >
-                <ServiceSubmenu>
+                <ServicesSubmenu>
                     <ServiceItem
                         title={'Поповнення мобільного'}
-                        icon={'icons-with-bg/phone.svg'}
+                        titleIcon={'icons-with-bg/phone.svg'}
                     />
                     <ServiceItem
                         title={'Укртелеком'}
-                        icon={'counterparties/ukrtelecom.svg'}
+                        titleIcon={'counterparties/ukrtelecom.svg'}
                     />
                     <ServiceItem
                         title={'Тріолан'}
-                        icon={'counterparties/triolan.svg'}
+                        titleIcon={'counterparties/triolan.svg'}
                     />
                     <ServiceItem
                         title={'Воля'}
-                        icon={'counterparties/volia.svg'}
+                        titleIcon={'counterparties/volia.svg'}
                     />
-                </ServiceSubmenu>
-                <IconArrow />
+                </ServicesSubmenu>
             </ServiceItem>
         </div>
     );

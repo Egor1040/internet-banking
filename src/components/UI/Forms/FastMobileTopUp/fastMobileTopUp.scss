@@ -1,0 +1,37 @@
+.mobile-topUp {
+    .widget-form {
+        &__input {
+            padding-left: 124px;
+        }
+
+        &__operator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+
+            &::after {
+                content: "";
+                display: block;
+                width: 1px;
+                height: 24px;
+                background-color: #4d4d4d;
+            }
+        }
+
+        &__icon-country {
+            display: flex;
+            width: 16px;
+        }
+
+        &__operator-number {
+        }
+
+        &__more-operators {
+            display: flex;
+        }
+    }
+}

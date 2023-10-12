@@ -9,16 +9,22 @@
     &:hover {
         background-color: #323232;
 
-        .service-submenu {
+        .services-submenu {
             display: block;
         }
     }
 
-    &__main-icon {
+    &__title-icon {
         display: flex;
         width: 32px;
     }
 
     &__title {
+    }
+
+    &__arrow-icon {
+        display: flex;
+        width: 24px;
+        margin-left: auto;
     }
 }
