@@ -1,12 +1,12 @@
-import '../styles/main/main.scss';
-import ServiceMenu from './ServiceMenu';
+import { ServiceMenu } from '../../components';
+import './main.scss';
 
 const Main = () => {
     return (
         <main className='main'>
             <div className='container'>
                 <div className='main-content'>
-                    
+
                     <ServiceMenu />
 
                     <div className="fast-payments">
