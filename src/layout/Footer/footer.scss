@@ -37,7 +37,7 @@
     }
 
     &__item-num {
-        font-weight: 400;
+        font-weight: 600;
     }
 
     &__item-descr {
@@ -157,8 +157,8 @@
         font-size: 10px;
 
         span {
+            font-weight: 600;
             font-size: 14px;
-            font-weight: 400;
             transition: all 0.3s ease 0s;
         }
     }
