@@ -1,4 +1,4 @@
-import { ServicesMenu, ServicesWidget } from '../../components';
+import { ServicesMenu, ServicesWidget, SupportChat } from '../../components';
 import './main.scss';
 
 export const Main = () => {
@@ -10,6 +10,8 @@ export const Main = () => {
                     <ServicesMenu />
 
                     <ServicesWidget />
+
+                    <SupportChat />
 
                 </div>
             </div>
