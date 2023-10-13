@@ -1,0 +1,165 @@
+.footer {
+    margin-top: auto;
+    background-color: #303030;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.support-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.support-links {
+    display: flex;
+    color: #8dc641;
+    gap: 25px;
+
+    &__item {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.support-contacts {
+    display: flex;
+    gap: 25px;
+
+    &__item {
+        display: flex;
+        gap: 15px;
+    }
+
+    &__item-num {
+        font-weight: 400;
+    }
+
+    &__item-descr {
+        color: #ffffff8a;
+    }
+}
+
+.copyright {
+    font-size: 12px;
+    color: #ffffff8a;
+}
+
+.additional-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 35px;
+}
+
+.settings-site {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.set-language {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0px;
+    border-bottom: 1px solid #4d4d4d;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        border-color: #adadad;
+    }
+
+    &:focus {
+        border-color: #8dc641;
+    }
+
+    &__flag {
+        width: 16px;
+    }
+
+    &__title {
+    }
+
+    &__more {
+        display: flex;
+        width: 24px;
+        margin-left: 35px;
+    }
+}
+
+.switch-theme {
+    display: flex;
+    position: relative;
+    width: 40px;
+    height: 16px;
+    border-radius: 100px;
+    background: #404040;
+    cursor: pointer;
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background-color: #4d4d4d;
+        border-radius: 50%;
+        border: 1px solid #8dc641;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        box-shadow:
+            rgba(0, 0, 0, 0.12) 0px 2px 4px 0px,
+            rgba(0, 0, 0, 0.12) 0px 0px 4px 0px;
+
+        img {
+            width: 16px;
+        }
+    }
+}
+
+.installing-application {
+    display: flex;
+    gap: 25px;
+    color: #ffffff8a;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+
+        &:hover {
+            .installing-application__title span {
+                color: #ffffffde;
+            }
+        }
+    }
+
+    &__img {
+        display: flex;
+        width: 24px;
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 10px;
+
+        span {
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.3s ease 0s;
+        }
+    }
+}
