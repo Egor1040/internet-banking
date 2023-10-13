@@ -3,7 +3,7 @@ import '../../layout/Header/header.scss';
 import CurrencyExchange from '../../components/CurrencyExchange/CurrencyExchange';
 import PaymentHistory from '../../components/PaymentHistory/PaymentHistory';
 
-const Header = () => {
+export const Header = () => {
     return (
         <div className='header'>
             <div className="header-container">
@@ -36,5 +36,3 @@ const Header = () => {
         </div>
     );
 };
-
-export default Header;

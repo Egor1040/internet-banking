@@ -1,5 +1,5 @@
 import React from 'react';
-import '../PaymentHistory/paymenthistory.scss';
+import '../PaymentHistory/paymentHistory.scss';
 
 const PaymentHistory = () => {
     return (
