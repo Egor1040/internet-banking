@@ -1,7 +1,8 @@
 import RenderElement from '../../../utils/hocs/RenderElement';
+import { ServicesSubmenu } from '../ServicesSubmenu/ServicesSubmenu';
 import './serviceItem.scss';
 
-export const ServiceItem = ({ children, title, titleIcon, arrowIcon }) => {
+export const ServiceItem = ({title, titleIcon, subMenu }) => {
     return (
         <div className="service-item">
             <div className="service-item__title-icon">
@@ -9,12 +10,13 @@ export const ServiceItem = ({ children, title, titleIcon, arrowIcon }) => {
             </div>
             <div className="service-item__title">{title}</div>
 
-            {children}
-
-            <RenderElement data={arrowIcon}>
+            <RenderElement data={subMenu}>
                 <div className="service-item__arrow-icon">
-                    <img src={`img/icons/${arrowIcon}`} alt="arrow" />
+                    <img src='img/icons/arrow.svg' alt="arrow" />
                 </div>
+
+                <ServicesSubmenu subMenu={subMenu} />
+                
             </RenderElement>
 
         </div>
