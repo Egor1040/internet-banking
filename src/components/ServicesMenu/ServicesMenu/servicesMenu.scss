@@ -11,5 +11,9 @@
         left: 0px;
         top: 65px;
         z-index: 2;
+
+        & .overlay {
+            display: block;
+        }
     }
 }
