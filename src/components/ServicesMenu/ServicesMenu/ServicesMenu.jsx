@@ -2,9 +2,9 @@ import { ServiceItem } from '../ServiceItem/ServiceItem';
 import { servicesItemData } from '../ServicesData/servicesItemData';
 import './servicesMenu.scss';
 
-export const ServicesMenu = () => {
+export const ServicesMenu = ({ activeMenu }) => {
     return (
-        <div className="services-menu">
+        <div className={`services-menu ${activeMenu ? 'services-menu_active' : ''}`}>
             {
                 servicesItemData.map(({ title, titleIcon, subMenu }) => (
                     <ServiceItem

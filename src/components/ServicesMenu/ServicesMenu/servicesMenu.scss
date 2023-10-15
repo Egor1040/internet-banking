@@ -1,7 +1,14 @@
 .services-menu {
     background-color: #212121;
     width: 280px;
-    height: 100%;
+    min-height: 100%;
     position: relative;
     padding: 16px 0;
+
+    &_active {
+        position: absolute;
+        left: 0px;
+        top: 65px;
+        z-index: 2;
+    }
 }
