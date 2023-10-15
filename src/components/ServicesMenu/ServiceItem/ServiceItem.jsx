@@ -20,5 +20,6 @@ export const ServiceItem = ({title, titleIcon, subMenu }) => {
             </RenderElement>
 
         </div>
+
     );
 };

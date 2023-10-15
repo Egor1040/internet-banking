@@ -6,6 +6,7 @@ export const servicesItemData = [
             {
                 title: 'Перекази на картку',
                 titleIcon: 'icons-with-bg/card.svg',
+                link: '/transfers',
             }
         ]
     },
@@ -16,10 +17,12 @@ export const servicesItemData = [
             {
                 title: 'Комунальні платежі',
                 titleIcon: 'icons-with-bg/communal.svg',
+                link: '/communal',
             },
             {
                 title: 'Інтернет та ТБ',
                 titleIcon: 'icons-with-bg/wifi.svg',
+                link: '/internet',
             },
         ]
     },
@@ -30,18 +33,22 @@ export const servicesItemData = [
             {
                 title: 'Поповнення мобільного',
                 titleIcon: 'icons-with-bg/phone.svg',
+                link: '/mobile',
             },
             {
                 title: 'Укртелеком',
                 titleIcon: 'counterparties/ukrtelecom.svg',
+                link: '/internet',
             },
             {
                 title: 'Тріолан',
                 titleIcon: 'counterparties/triolan.svg',
+                link: '/internet',
             },
             {
                 title: 'Воля',
                 titleIcon: 'counterparties/volia.svg',
+                link: '/internet',
             },
         ]
     },

@@ -1,13 +1,8 @@
-import './common.scss';
-import { Footer, Header, Main } from './layout';
+import Routers from "./Routers/Routers"
 
-function App() {
+const App = () => {
     return (
-        <div className="wrapper">
-            <Header />
-            <Main />
-            <Footer />
-        </div>
+        <Routers />
     );
 }
 

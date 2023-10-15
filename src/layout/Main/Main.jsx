@@ -1,4 +1,5 @@
-import { ServicesMenu, ServicesWidget, SupportChat } from '../../components';
+import { Outlet } from 'react-router';
+import { SupportChat } from '../../components';
 import './main.scss';
 
 export const Main = () => {
@@ -7,9 +8,7 @@ export const Main = () => {
             <div className='container'>
                 <div className='main-content'>
 
-                    <ServicesMenu />
-
-                    <ServicesWidget />
+                    <Outlet />
 
                     <SupportChat />
 
