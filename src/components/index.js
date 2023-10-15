@@ -11,3 +11,6 @@ export * from './ServicesMenu/ServiceItem/ServiceItem';
 export * from './ServicesWidget/ServicesWidget/ServicesWidget';
 export * from './ServicesWidget/ServiceWidget/ServiceWidget';
 export * from './ServicesWidget/BankNews/BankNews';
+
+export * from './CurrencyExchange/CurrencyExchange';
+export * from './PaymentHistory/PaymentHistory';
