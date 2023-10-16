@@ -2,6 +2,9 @@ export * from './UI/Buttons/WidgetButton/WidgetButton';
 export * from './UI/Forms/FastTransferCard/FastTransferCard';
 export * from './UI/Forms/FastRechargeMobile/FastRechargeMobile';
 export * from './UI/Forms/FastRequisitesPay/FastRequisitesPay';
+export * from './UI/Forms/CardForm/CardForm';
+export * from './UI/Forms/AmountField/AmountField';
+export * from './UI/InformationBoard/InformationBoard';
 export * from './SupportChat/SupportChat';
 
 export * from './ServicesMenu/ServicesMenu/ServicesMenu';

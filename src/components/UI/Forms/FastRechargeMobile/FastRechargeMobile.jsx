@@ -1,7 +1,8 @@
+import RenderElement from '../../../../utils/hocs/RenderElement';
 import { WidgetButton } from '../../Buttons/WidgetButton/WidgetButton';
 import './fastRechargeMobile.scss';
 
-export const FastMobileTopUp = () => {
+export const FastRechargeMobile = ({ isButton }) => {
     return (
         <form className="recharge-mobile widget-form">
             <label className='widget-form__label'>
@@ -22,7 +23,9 @@ export const FastMobileTopUp = () => {
                 />
             </label>
 
-            <WidgetButton />
+            <RenderElement data={isButton}>
+                <WidgetButton />
+            </RenderElement>
 
         </form>
     );

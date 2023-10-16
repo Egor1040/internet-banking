@@ -1,7 +1,8 @@
 import './fastRequisitesPay.scss';
 import { WidgetButton } from '../../Buttons/WidgetButton/WidgetButton';
+import RenderElement from '../../../../utils/hocs/RenderElement';
 
-export const FastRequisitesPay = () => {
+export const FastRequisitesPay = ({ isButton }) => {
     return (
         <form className="requisites-pay widget-form">
             <label className='widget-form__label'>
@@ -16,7 +17,9 @@ export const FastRequisitesPay = () => {
                 />
             </label>
 
-            <WidgetButton />
+            <RenderElement data={isButton}>
+                <WidgetButton />
+            </RenderElement>
 
         </form>
     );

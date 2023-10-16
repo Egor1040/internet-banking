@@ -1,7 +1,8 @@
 import './fastTransferCard.scss';
 import { WidgetButton } from '../../Buttons/WidgetButton/WidgetButton';
+import RenderElement from '../../../../utils/hocs/RenderElement';
 
-export const FastTransferCard = () => {
+export const FastTransferCard = ({ isButton }) => {
     return (
         <form className="transfer-card widget-form">
             <label className='widget-form__label'>
@@ -16,7 +17,9 @@ export const FastTransferCard = () => {
                 </div>
             </label>
 
-            <WidgetButton />
+            <RenderElement data={isButton}>
+                <WidgetButton />
+            </RenderElement>
 
         </form>
     );
