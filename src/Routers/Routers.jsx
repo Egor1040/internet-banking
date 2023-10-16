@@ -8,8 +8,8 @@ const Routers = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<InitialPage />}>
-                    <Route path='recharge-mobile' element={<ServicesWidget />} />
-                    <Route index element={<RechargeMobile />} />
+                    <Route index element={<ServicesWidget />} />
+                    <Route path='recharge-mobile' element={<RechargeMobile />} />
                 </Route>
             </Routes>
         </BrowserRouter>

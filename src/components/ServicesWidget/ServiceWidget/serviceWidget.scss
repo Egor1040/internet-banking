@@ -47,6 +47,13 @@
     justify-content: space-between;
     gap: 10px;
 
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        width: 0;
+    }
+
     &__label {
         display: flex;
         position: relative;
