@@ -17,7 +17,7 @@ export const FastRechargeMobile = ({ isButton }) => {
                 </div>
                 <input
                     className="widget-form__input"
-                    type='text'
+                    type='number'
                     name='mobile'
                     placeholder='000000000'
                 />

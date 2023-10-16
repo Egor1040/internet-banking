@@ -43,21 +43,23 @@ export const RechargeMobile = () => {
 
                     <AmountField />
 
-                    <div className="recharge-form__commission">
-                        <div className="recharge-form__commission-title">Комісія</div>
-                        <div className="recharge-form__commission-amount">0 UAH</div>
-                    </div>
-                    <div className="recharge-form__payable">
-                        <div className="recharge-form__payable-title">До сплати</div>
-                        <div className="recharge-form__payable-amount">0 UAH</div>
+                    <div className='total-amount'>
+                        <div className="total-amount__item">
+                            <div className="total-amount__title">Комісія</div>
+                            <div className="total-amount__sum">0 UAH</div>
+                        </div>
+                        <div className="total-amount__item">
+                            <div className="total-amount__title">До сплати</div>
+                            <div className="total-amount__sum"> UAH</div>
+                        </div>
                     </div>
 
                     <CardForm />
 
-                    <div className="recharge-form__terms-use">
+                    <a href='#' className="recharge-form__terms-use">
                         Натискаючи кнопку "Поповнити" Ви приймаєте умови
                         <span> користування сервісом</span>
-                    </div>
+                    </a>
 
                     <button className='recharge-form__confirmation' type='submit'>Додати в кошик</button>
                 </form>

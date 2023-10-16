@@ -1,4 +1,11 @@
 .information-board {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
     &__icon {
+        display: flex;
+        width: 24px;
     }
 }

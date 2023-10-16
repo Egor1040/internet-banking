@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    color: #ffffff8a;
 }
 
 .recharge-header {
@@ -27,10 +28,10 @@
     &__title {
         font-weight: 600;
         font-size: 20px;
+        color: #e2e2e2;
     }
 
     &__descr {
-        color: #ffffff8a;
         font-size: 14px;
     }
 
@@ -43,30 +44,95 @@
         width: 48px;
     }
 }
+
 .recharge-main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 24px;
-    padding: 24px 32px;
+    padding: 24px 32px 0;
     background: #212121 url(../../../public/img/map.png) no-repeat top center;
 
     &__img-decor {
+        display: flex;
         width: 620px;
     }
 }
 
 .recharge-form {
     display: flex;
+    align-items: center;
     flex-direction: column;
+    gap: 20px;
+    width: 328px;
 
-    &__input {
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-            width: 0;
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        width: 0;
+    }
+
+    &__mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &__title-mobile {
+        font-size: 12px;
+    }
+
+    &__terms-use {
+        font-size: 12px;
+
+        span {
+            color: #8dc641;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
+    }
+
+    &__confirmation {
+        background-color: #8dc641;
+        color: #000;
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-weight: 600;
+        text-align: center;
+        border: none;
+        font-size: 16px;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        font-weight: 600;
+
+        &:hover {
+            background-color: #699f25;
+        }
+    }
+}
+
+.total-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    width: 100%;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__title {
+        color: #929999;
+    }
+
+    &__sum {
+        color: #e2e2e2;
     }
 }

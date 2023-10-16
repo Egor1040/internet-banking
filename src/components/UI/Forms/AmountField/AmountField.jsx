@@ -8,6 +8,7 @@ export const AmountField = () => {
                 <input
                     type="number"
                     min={1}
+                    max={2000000}
                     placeholder='200.00'
                     className="recharge-amount__input"
                 />

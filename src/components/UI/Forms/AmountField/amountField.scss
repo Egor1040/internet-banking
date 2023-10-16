@@ -1,19 +1,69 @@
 .recharge-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+
     &__title {
+        font-size: 12px;
     }
 
     &__label {
+        display: flex;
+        position: relative;
+        width: 100%;
     }
 
     &__input {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        font-size: 24px;
+        border-bottom: 1px solid #4d4d4d;
+        transition: all 0.3s ease 0s;
+        width: 100%;
+        color: inherit;
+        padding: 10px 32px 10px 0;
+
+        &::placeholder {
+            color: #757575;
+        }
+
+        &:hover {
+            border-color: #adadad;
+        }
+
+        &:focus {
+            border-color: #8dc641;
+            color: #8dc641;
+        }
     }
 
     &__currency {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.24);
     }
 
     &__templates {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 11px;
     }
 
     &__template {
+        background-color: #636363;
+        color: #ffffffde;
+        border-radius: 100px;
+        padding: 4px 16px;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #787878;
+        }
     }
 }
