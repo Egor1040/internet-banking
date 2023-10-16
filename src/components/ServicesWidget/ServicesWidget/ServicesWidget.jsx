@@ -2,7 +2,7 @@ import { ServiceWidget } from '../ServiceWidget/ServiceWidget';
 import { ServicesMenu } from '../../ServicesMenu/ServicesMenu/ServicesMenu';
 import { BankNews } from '../BankNews/BankNews';
 import { FastTransferCard } from '../../UI/Forms/FastTransferCard/FastTransferCard';
-import { FastMobileTopUp } from '../../UI/Forms/FastMobileTopUp/FastMobileTopUp';
+import { FastMobileTopUp } from '../../UI/Forms/FastRechargeMobile/FastRechargeMobile';
 import { FastRequisitesPay } from '../../UI/Forms/FastRequisitesPay/FastRequisitesPay';
 import './servicesWidget.scss';
 

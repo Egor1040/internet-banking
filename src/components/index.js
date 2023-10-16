@@ -1,6 +1,6 @@
 export * from './UI/Buttons/WidgetButton/WidgetButton';
 export * from './UI/Forms/FastTransferCard/FastTransferCard';
-export * from './UI/Forms/FastMobileTopUp/FastMobileTopUp';
+export * from './UI/Forms/FastRechargeMobile/FastRechargeMobile';
 export * from './UI/Forms/FastRequisitesPay/FastRequisitesPay';
 export * from './SupportChat/SupportChat';
 

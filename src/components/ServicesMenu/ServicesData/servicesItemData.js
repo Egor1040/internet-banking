@@ -33,7 +33,7 @@ export const servicesItemData = [
             {
                 title: 'Поповнення мобільного',
                 titleIcon: 'icons-with-bg/phone.svg',
-                link: '/mobile',
+                link: '/recharge-mobile',
             },
             {
                 title: 'Укртелеком',

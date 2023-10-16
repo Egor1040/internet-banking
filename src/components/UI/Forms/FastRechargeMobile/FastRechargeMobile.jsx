@@ -1,9 +1,9 @@
 import { WidgetButton } from '../../Buttons/WidgetButton/WidgetButton';
-import './fastMobileTopUp.scss';
+import './fastRechargeMobile.scss';
 
 export const FastMobileTopUp = () => {
     return (
-        <form className="mobile-topUp widget-form">
+        <form className="recharge-mobile widget-form">
             <label className='widget-form__label'>
                 <div className='widget-form__operator'>
                     <div className="widget-form__icon-country">
