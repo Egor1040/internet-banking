@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" version="1.1"
+  viewBox="0 0 48 48">
+  <defs>
+    <radialGradient id="serviceP2P_svg__b" cx="100%" cy="0%" r="141.421%" fx="100%" fy="0%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".382" />
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+    </radialGradient>
+    <path id="serviceP2P_svg__a"
+      d="M14.77 0h18.46C41.389 0 48 6.612 48 14.77v18.46C48 41.389 41.388 48 33.23 48H14.77C6.611 48 0 41.388 0 33.23V14.77C0 6.611 6.612 0 14.77 0z" />
+  </defs>
+  <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+    <g>
+      <use fill="#4CD964" xlink:href="#serviceP2P_svg__a" />
+      <use fill="url(#serviceP2P_svg__b)" style="mix-blend-mode:lighten" xlink:href="#serviceP2P_svg__a" />
+    </g>
+    <path fill="#FFF"
+      d="M33.2 20.165H14v-1.017c0-1.186.952-2.148 2.147-2.148h14.906c1.186 0 2.147.97 2.147 2.148v1.017zm0 2.11v7.347a2.141 2.141 0 01-2.147 2.147H16.147A2.152 2.152 0 0114 29.622v-7.347h19.2zm-5.333 5.989v.681c0 .385.318.714.71.714h1.78c.391 0 .71-.32.71-.714v-.681a.719.719 0 00-.71-.715h-1.78c-.392 0-.71.32-.71.715z" />
+  </g>
+</svg>
