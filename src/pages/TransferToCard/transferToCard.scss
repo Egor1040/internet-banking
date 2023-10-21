@@ -1,0 +1,110 @@
+.transfer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: #ffffff8a;
+    width: 100%;
+}
+
+.transfer-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    &__headline {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    &__title-icon {
+        width: 48px;
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    &__title {
+        font-weight: 600;
+        font-size: 20px;
+        color: #e2e2e2;
+    }
+    &__descr {
+        font-size: 14px;
+    }
+    &__icons-card {
+        display: flex;
+        gap: 24px;
+    }
+    &__icon-card {
+        display: flex;
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.transfer-main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0;
+    background: #212121 url(http://localhost:3002/static/media/map.0782983….png) no-repeat top center;
+    &__img {
+        width: 160px;
+        height: 200px;
+        position: absolute;
+        bottom: 0;
+        right: 250px;
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.transfer-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 328px;
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        width: 0;
+    }
+    &__descr {
+        width: 90%;
+    }
+    &__prompt {
+        color: rgba(255, 255, 255, 0.5411764706);
+        font-size: 12px;
+        &-green {
+            cursor: pointer;
+            color: #8dc634;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__confirmation {
+        background-color: #8dc641;
+        color: #000;
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-weight: 600;
+        text-align: center;
+        border: none;
+        font-size: 16px;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        font-weight: 600;
+        &:hover {
+            background-color: #699f25;
+        }
+    }
+}
