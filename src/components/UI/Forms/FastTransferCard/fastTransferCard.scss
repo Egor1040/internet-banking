@@ -1,4 +1,11 @@
 .transfer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    background-color: #303030;
+    cursor: initial;
+
     .widget-form {
         &__input {
             padding-left: 0;

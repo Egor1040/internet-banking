@@ -18,7 +18,7 @@ export const ServicesWidget = () => {
                     titleIcon={'icons-with-bg/card.svg'}
                     descr={'VISA/MasterCard українських та закордонних банків'}
                 >
-                    <FastTransferCard isButton={true} />
+                    <FastTransferCard isWidget={true} />
 
                 </ServiceWidget>
 

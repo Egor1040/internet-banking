@@ -1,6 +1,7 @@
 import { AmountField, CardForm, FastRechargeMobile } from '../../components';
 import './rechargeMobile.scss';
 
+
 export const RechargeMobile = () => {
     return (
         <div className='recharge-mobile'>
@@ -56,10 +57,10 @@ export const RechargeMobile = () => {
 
                     <CardForm />
 
-                    <a href='#' className="recharge-form__terms-use">
+                    <div className="recharge-form__terms-use">
                         Натискаючи кнопку "Поповнити" Ви приймаєте умови
                         <span> користування сервісом</span>
-                    </a>
+                    </div>
 
                     <button className='recharge-form__confirmation' type='submit'>Додати в кошик</button>
                 </form>

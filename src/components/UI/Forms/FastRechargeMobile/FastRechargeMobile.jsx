@@ -4,7 +4,7 @@ import './fastRechargeMobile.scss';
 
 export const FastRechargeMobile = ({ isButton }) => {
     return (
-        <form className="recharge-widget widget-form">
+        <div className="recharge-widget widget-form">
             <label className='widget-form__label'>
                 <div className='widget-form__operator'>
                     <div className="widget-form__icon-country">
@@ -27,6 +27,6 @@ export const FastRechargeMobile = ({ isButton }) => {
                 <WidgetButton />
             </RenderElement>
 
-        </form>
+        </div>
     );
 };
