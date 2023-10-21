@@ -22,5 +22,3 @@ export * from './ServicesWidget/BankNews/BankNews';
 export * from './CurrencyExchange/CurrencyExchange';
 export * from './PaymentHistory/PaymentHistory';
 export * from './Overlay/Overlay';
-
-export * from './RecipientCard/RecipientCard';
