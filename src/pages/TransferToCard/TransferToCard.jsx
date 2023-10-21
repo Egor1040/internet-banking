@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../TransferToCard/transferToCard.scss';
-import { AmountField } from '../../components';
-import RecipientCard from '../../components/RecipientCard/RecipientCard';
+import { AmountField, CardsSelection } from '../../components';
 
 export const TransferToCard = () => {
+    const [isElemVisible, setElemVisible] = useState([
+        {id: 1, opened: false},
+        {id: 2,opened: false}
+    ]);
+
+    const toggleElemVisibality = (id) => {
+        setElemVisible();
+    }
+
     return (
-        <div className='transfer-card'>
+        <div className='transfer-cards'>
             <div className="transfer-header">
                 <div className="transfer-header__headline">
                     <div className="transfer-header__title-icon">
@@ -30,11 +38,18 @@ export const TransferToCard = () => {
             </div>
             <div className="transfer-main">
                 <form className="transfer-form">
-                    <div className="transfer-form__card">
-
+                    <div className="transfer-form__card" onClick={toggleElemVisibality}>
+                        <CardsSelection title="З картки" 
+                        isElemVisible={isElemVisible} 
+                        toggleElemVisibality={toggleElemVisibality}/>
                     </div>
 
-                    <RecipientCard/>
+                    <div className="transfer-form__card" onClick={toggleElemVisibality}>
+                        <CardsSelection title="Картка одержувача" 
+                        isElemVisible={isElemVisible} 
+                        toggleElemVisibality={toggleElemVisibality}/>
+                    </div>
+
                     <AmountField/>
                     <div className="transfer-form__prompt">
                             Натискаючи кнопку "Переказати" Ви приймаєте умови  

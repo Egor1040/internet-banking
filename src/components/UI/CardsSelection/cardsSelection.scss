@@ -1,0 +1,64 @@
+.cards-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.card-selection {
+    &__img {
+        border-radius: 4px;
+        overflow: hidden;
+        width: 75px;
+        height: 48px;
+        margin-right: 16px;
+    }
+    &__card {
+        position: relative;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.87);
+        display: flex;
+        padding: 16px;
+        background: rgb(48, 48, 48);
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px, rgba(0, 0, 0, 0.12) 0px 0px 4px 0px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        border: 1px solid transparent;
+    }
+    &__first-descr {
+        font-size: 14px;
+        gap: 8px;
+        display: flex;
+        margin-bottom: 2px;
+    }
+    &__balance {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+    &__arrow-down {
+        transform: rotate(90deg);
+        &_up {
+            transform: rotate(-90deg);
+        }
+    }
+    &__selections {
+        position: absolute;
+        bottom: -210px;
+        width: 108%;
+        padding: 8px 0px;
+        background: rgb(77, 77, 77);
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 4px 10px 0px;
+        z-index: 999;
+        border-radius: 2px;
+        border: 0px none;
+        overflow: hidden;
+        outline: none 0px;
+    }
+    
+}

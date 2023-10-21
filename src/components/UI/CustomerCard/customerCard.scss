@@ -1,10 +1,10 @@
 .customer-card {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 10px;
     padding: 10px;
     border-bottom: 1px solid #4d4d4d;
-    transition: all 0.3s ease 0s;
+    color: rgba(255, 255, 255, 0.87);
     cursor: pointer;
 
     &:hover {
@@ -15,14 +15,28 @@
     &__data-card {
 
     }
-
     &__icon {
-        width: 24px;
+        border-radius: 4px;
+        overflow: hidden;
+        width: 75px;
+        height: 48px;
+        margin-right: 8px;
     }
-
+    &__item {
+        min-width: 229.81px;
+        display: flex;
+        gap: 8px;
+        font-size: 14px;
+    }
     &__number {
     }
+    &__name {
 
-    &__expiry-data {
+    }
+    &__balance {
+        max-width: 200px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 600;
     }
 }

@@ -1,6 +1,8 @@
 {
     "customerCards": [
-        {
+        {   
+            "id": "0",
+            "nameCard": "Картка Універсальна Голд",
             "number": "4731 9988 3178 3138",
             "cardholder": "Ivan Bilinskii",
             "expiryData": "10/24",
@@ -8,6 +10,8 @@
             "balance": "2000"
         },
         {
+            "id": "1",
+            "nameCard": "Картка для виплат",
             "number": "4731 2234 3178 3138",
             "cardholder": "Ivan Bilinskii",
             "expiryData": "03/22",
@@ -15,6 +19,8 @@
             "balance": "3000"
         },
         {
+            "id": "2",
+            "nameCard": "Картка Універсальна Голд",
             "number": "4731 9075 3178 3138",
             "cardholder": "Ivan Bilinskii",
             "expiryData": "01/26",
