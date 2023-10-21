@@ -1,7 +1,6 @@
 import './fastTransferCard.scss';
 import { WidgetButton } from '../../Buttons/WidgetButton/WidgetButton';
 import RenderElement from '../../../../utils/hocs/RenderElement';
-import { useState } from 'react';
 
 export const FastTransferCard = ({ isWidget }) => {
     return (

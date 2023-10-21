@@ -1,18 +1,10 @@
 import './customerCard.scss';
 
-export const CustomerCard = ({ data, setCurrentCurd }) => {
-    const { number, expiryData, CVV, balance } = data;
-
-    const getDataCurrentCard = () => {
-        setCurrentCurd({
-            number,
-            expiryData,
-            CVV,
-        })
-    }
+export const CustomerCard = ({ data }) => {
+    const { number, expiryData } = data;
 
     return (
-        <div className="customer-card" onClick={getDataCurrentCard}>
+        <div className="customer-card">
             <div className="customer-card__icon">
                 <img src="img/icons/mastercard.svg" alt="card" />
             </div>
