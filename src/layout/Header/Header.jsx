@@ -1,15 +1,16 @@
 import React from 'react';
 import '../../layout/Header/header.scss';
 import { CurrencyExchange, PaymentHistory, ServicesMenu } from '../../components';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
     return (
         <div className='header'>
             <div className="header-container">
                 <div className="header-left">
-                    <div className="header-logo">
+                    <Link to="/" className="header-logo">
                         <span className='header-logo__icon'></span>
-                    </div>
+                    </Link>
                     <div className="header-service">
                         Сервіси
                         <div className="header-service__img">

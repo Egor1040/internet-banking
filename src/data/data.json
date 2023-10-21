@@ -1,23 +1,23 @@
 {
     "customerCards": [
         {
-            "number": "4731185631783138",
+            "number": "4731 9988 3178 3138",
             "cardholder": "Ivan Bilinskii",
-            "expiryData": "04/24",
+            "expiryData": "10/24",
             "CVV": "134",
             "balance": "2000"
         },
         {
-            "number": "4731185631783138",
+            "number": "4731 2234 3178 3138",
             "cardholder": "Ivan Bilinskii",
-            "expiryData": "04/24",
+            "expiryData": "03/22",
             "CVV": "134",
             "balance": "3000"
         },
         {
-            "number": "4731185631783138",
+            "number": "4731 9075 3178 3138",
             "cardholder": "Ivan Bilinskii",
-            "expiryData": "04/24",
+            "expiryData": "01/26",
             "CVV": "134",
             "balance": "4000"
         }
