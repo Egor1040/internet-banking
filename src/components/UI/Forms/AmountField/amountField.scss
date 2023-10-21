@@ -46,24 +46,4 @@
         transform: translateY(-50%);
         color: rgba(255, 255, 255, 0.24);
     }
-
-    &__templates {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        margin-top: 11px;
-    }
-
-    &__template {
-        background-color: #636363;
-        color: #ffffffde;
-        border-radius: 100px;
-        padding: 4px 16px;
-        transition: all 0.3s ease 0s;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #787878;
-        }
-    }
 }

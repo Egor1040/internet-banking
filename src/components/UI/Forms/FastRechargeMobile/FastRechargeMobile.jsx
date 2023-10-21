@@ -1,8 +1,19 @@
+import { useState } from 'react';
 import RenderElement from '../../../../utils/hocs/RenderElement';
 import { WidgetButton } from '../../Buttons/WidgetButton/WidgetButton';
 import './fastRechargeMobile.scss';
 
 export const FastRechargeMobile = ({ isButton }) => {
+    const [value, setValue] = useState('');
+
+    const getPhoneNumber = (e) => {
+        const newValue = e.target.value;
+
+        if (newValue.length > 9) return;
+
+        setValue(newValue)
+    }
+
     return (
         <div className="recharge-widget widget-form">
             <label className='widget-form__label'>
@@ -16,10 +27,12 @@ export const FastRechargeMobile = ({ isButton }) => {
                     </div>
                 </div>
                 <input
-                    className="widget-form__input"
                     type='number'
+                    className="widget-form__input"
                     name='mobile'
                     placeholder='000000000'
+                    onChange={getPhoneNumber}
+                    value={value}
                 />
             </label>
 
