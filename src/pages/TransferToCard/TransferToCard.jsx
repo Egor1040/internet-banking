@@ -4,12 +4,14 @@ import { AmountField, CardsSelection } from '../../components';
 
 export const TransferToCard = () => {
     const [isElemVisible, setElemVisible] = useState([
-        {id: 1, opened: false},
-        {id: 2,opened: false}
+        { id: 1, opened: false },
+        { id: 2, opened: false },
     ]);
 
-    const toggleElemVisibality = (id) => {
-        setElemVisible();
+    const toggleElemVisibility = (id) => {
+        setElemVisible(
+            isElemVisible.map(elemVisible => elemVisible.id === id ? { ...elemVisible, opened: !elemVisible.opened } : { ...elemVisible, opened: false })
+        )
     }
 
     return (
@@ -38,22 +40,28 @@ export const TransferToCard = () => {
             </div>
             <div className="transfer-main">
                 <form className="transfer-form">
-                    <div className="transfer-form__card" onClick={toggleElemVisibality}>
-                        <CardsSelection title="З картки" 
-                        isElemVisible={isElemVisible} 
-                        toggleElemVisibality={toggleElemVisibality}/>
+                    <div className="transfer-form__card">
+                        <CardsSelection
+                            title="З картки"
+                            idSelection={isElemVisible[0].id}
+                            openedSelection={isElemVisible[0].opened}
+                            toggleElemVisibility={toggleElemVisibility}
+                        />
                     </div>
 
-                    <div className="transfer-form__card" onClick={toggleElemVisibality}>
-                        <CardsSelection title="Картка одержувача" 
-                        isElemVisible={isElemVisible} 
-                        toggleElemVisibality={toggleElemVisibality}/>
+                    <div className="transfer-form__card">
+                        <CardsSelection
+                            title="Картка одержувача"
+                            idSelection={isElemVisible[1].id}
+                            openedSelection={isElemVisible[1].opened}
+                            toggleElemVisibility={toggleElemVisibility}
+                        />
                     </div>
 
-                    <AmountField/>
+                    <AmountField />
                     <div className="transfer-form__prompt">
-                            Натискаючи кнопку "Переказати" Ви приймаєте умови  
-                            <span className='transfer-form__prompt transfer-form__prompt-green'> користування сервісом</span>
+                        Натискаючи кнопку "Переказати" Ви приймаєте умови
+                        <span className='transfer-form__prompt transfer-form__prompt-green'> користування сервісом</span>
                     </div>
                     <button className='transfer-form__confirmation'>Переказати</button>
                 </form>

@@ -1,12 +1,12 @@
 import './customerCard.scss';
 
-export const CustomerCard = ( {data, chooseCard} ) => {
+export const CustomerCard = ({ data, chooseCard }) => {
     const { number, nameCard, balance, id } = data;
 
     return (
         <div className="customer-card" onClick={() => chooseCard(id)}>
             <div className="customer-card__icon">
-                <img src="img/icons/cards/mc_kdv.png" alt="card" />
+                <img src={`img/icons/cards/${id}.png`} alt="card" />
             </div>
             <div className='customer-card__data-card'>
                 <div className='customer-card__item'>
