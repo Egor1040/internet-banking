@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
 
 export const RechargeMobile = () => {
+    const [cardSame, setCardSame] = useState();
     const dispatch = useDispatch();
     const [dataForTransfer, setDataForTransfer] = useState({
         from: data.customerCards[0].id,
@@ -39,6 +40,9 @@ export const RechargeMobile = () => {
             setIsEmptyInput(true);
             return;
         };
+        
+        dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false)
+        if(cardSame) return; 
         
         dispatch(addHistoryTransfer(dataForTransfer))
     }
@@ -79,6 +83,7 @@ export const RechargeMobile = () => {
                         toggleElemVisibility={toggleElemVisibility}
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
+                        setCardSame={setCardSame}
                     />
 
                     <div className="recharge-form__terms-use">

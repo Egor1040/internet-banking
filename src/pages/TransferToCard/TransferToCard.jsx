@@ -12,7 +12,7 @@ export const TransferToCard = () => {
         to: data.customerCards[0].id,
         sum: '',
     });
-
+    const [cardSame, setCardSame] = useState();
     const [isElemVisible, setElemVisible] = useState([
         { id: 1, opened: false },
         { id: 2, opened: false },
@@ -29,11 +29,14 @@ export const TransferToCard = () => {
     const addCardTransfer = (e) => {
         e.preventDefault();
 
+        dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false)
+        if (cardSame) return;
+
         if (!dataForTransfer.sum) {
             setIsEmptyInput(true);
             return;
         };
-        
+
         dispatch(addHistoryTransfer(dataForTransfer));
         setIsEmptyInput(false);
     }
@@ -72,6 +75,7 @@ export const TransferToCard = () => {
                             toggleElemVisibility={toggleElemVisibility}
                             dataForTransfer={dataForTransfer}
                             setDataForTransfer={setDataForTransfer}
+                            setCardSame={setCardSame}
                         />
                     </div>
 
@@ -83,9 +87,12 @@ export const TransferToCard = () => {
                             toggleElemVisibility={toggleElemVisibility}
                             dataForTransfer={dataForTransfer}
                             setDataForTransfer={setDataForTransfer}
+                            setCardSame={setCardSame}
                         />
                     </div>
-
+                    <div className='transfer-form__error-same'>
+                        {cardSame && "Карта відправника і одержувача збігаються"}
+                    </div>
                     <AmountField
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
