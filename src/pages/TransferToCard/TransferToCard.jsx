@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
 import '../TransferToCard/transferToCard.scss';
+import { useState } from 'react';
 import { AmountField, CardsSelection } from '../../components';
 
+import { useDispatch } from 'react-redux';
+import { addHistoryTransfer } from '../../store/historyCardSlice';
+
 export const TransferToCard = () => {
+    const dispatch = useDispatch();
+    const [dataForTransfer, setDataForTransfer] = useState({
+        from: '',
+        to: '',
+        sum: '',
+    });
+
     const [isElemVisible, setElemVisible] = useState([
         { id: 1, opened: false },
         { id: 2, opened: false },
@@ -12,6 +22,12 @@ export const TransferToCard = () => {
         setElemVisible(
             isElemVisible.map(elemVisible => elemVisible.id === id ? { ...elemVisible, opened: !elemVisible.opened } : { ...elemVisible, opened: false })
         )
+    }
+
+    const addCardTransfer = (e) => {
+        e.preventDefault();
+
+        dispatch(addHistoryTransfer(dataForTransfer))
     }
 
     return (
@@ -39,13 +55,15 @@ export const TransferToCard = () => {
                 </div>
             </div>
             <div className="transfer-main">
-                <form className="transfer-form">
+                <form onSubmit={addCardTransfer} className="transfer-form">
                     <div className="transfer-form__card">
                         <CardsSelection
                             title="З картки"
                             idSelection={isElemVisible[0].id}
                             openedSelection={isElemVisible[0].opened}
                             toggleElemVisibility={toggleElemVisibility}
+                            dataForTransfer={dataForTransfer}
+                            setDataForTransfer={setDataForTransfer}
                         />
                     </div>
 
@@ -55,10 +73,16 @@ export const TransferToCard = () => {
                             idSelection={isElemVisible[1].id}
                             openedSelection={isElemVisible[1].opened}
                             toggleElemVisibility={toggleElemVisibility}
+                            dataForTransfer={dataForTransfer}
+                            setDataForTransfer={setDataForTransfer}
                         />
                     </div>
 
-                    <AmountField />
+                    <AmountField
+                        sumForTransfer={dataForTransfer.sum}
+                        setDataForTransfer={setDataForTransfer}
+                    />
+
                     <div className="transfer-form__prompt">
                         Натискаючи кнопку "Переказати" Ви приймаєте умови
                         <span className='transfer-form__prompt transfer-form__prompt-green'> користування сервісом</span>

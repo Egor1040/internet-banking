@@ -1,35 +1,33 @@
 {
     "customerCards": [
-        {   
+        {
             "id": "0",
             "nameCard": "Картка Універсальна Голд",
-            "number": "4731 9988 3178 3138",
+            "number": "4731 9988 3178 4523",
             "cardholder": "Ivan Bilinskii",
             "expiryData": "10/24",
-            "CVV": "134",
+            "CVV": "321",
             "balance": "2000"
         },
         {
             "id": "1",
             "nameCard": "Картка для виплат",
-            "number": "4731 2234 3178 3138",
+            "number": "4731 2234 3178 7824",
             "cardholder": "Ivan Bilinskii",
             "expiryData": "03/22",
-            "CVV": "134",
+            "CVV": "145",
             "balance": "3000"
         },
         {
             "id": "2",
             "nameCard": "Картка Універсальна Голд",
-            "number": "4731 9075 3178 3138",
+            "number": "4731 9075 3178 1275",
             "cardholder": "Ivan Bilinskii",
             "expiryData": "01/26",
-            "CVV": "134",
+            "CVV": "598",
             "balance": "4000"
         }
-
     ],
-
     "counteragents": {
         "communal": [
             {
@@ -82,5 +80,4 @@
             "phone": "668877266"
         }
     ]
-
 }

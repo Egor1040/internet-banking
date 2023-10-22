@@ -4,12 +4,13 @@ import { useState } from 'react';
 import { CustomerCard } from '../CustomerCard/CustomerCard';
 import { MyWallet } from '../../MyWallet/MyWallet';
 import RenderElement from '../../../utils/hocs/RenderElement';
+import useLocalStorage from '../../../utils/hooks/useLocalStorage';
 
-export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection }) => {
-    const { customerCards } = data;
+export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, dataForTransfer, setDataForTransfer }) => {
+    const [customerCards, setCustomerCards] = useLocalStorage('dataCustomerCards', data.customerCards);
     const [indexCard, setIndexCard] = useState(0);
     const currentCard = customerCards[indexCard];
-
+    
     const btnClickHandler = () => {
         toggleElemVisibility(idSelection);
     }

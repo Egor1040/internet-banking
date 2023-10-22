@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import './amountField.scss';
 
-export const AmountField = () => {
-    const [value, setValue] = useState('');
-
+export const AmountField = ({ sumForTransfer, setDataForTransfer }) => {
     const getAmountPay = (e) => {
         const newValue = e.target.value.replace(/^0+/, "");
 
         if (+newValue > 9999999) return;
 
-        setValue(newValue)
+        setDataForTransfer({ sum: newValue })
     }
 
     return (
@@ -21,7 +18,7 @@ export const AmountField = () => {
                     placeholder='200.00'
                     className="recharge-amount__input"
                     onChange={getAmountPay}
-                    value={value}
+                    value={sumForTransfer}
                 />
                 <span className="recharge-amount__currency">UAH</span>
             </label>
