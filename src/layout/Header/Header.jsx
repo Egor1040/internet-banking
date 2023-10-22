@@ -18,7 +18,9 @@ export const Header = () => {
                         </div>
                         <ServicesMenu activeMenu={true}/> 
                     </div>
-                    <PaymentHistory/>
+                    <Link to="payment-history" className="header-history">
+                        Історія платежів
+                    </Link>
                 </div>
                 <div className="header-right">
                     <CurrencyExchange/>

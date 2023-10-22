@@ -66,6 +66,21 @@
             }
         }
     }
+    &-history {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        &:hover::after {
+            bottom: 0;
+            position: absolute;
+            content: '';
+            width: 100%;
+            border-bottom: 3px solid #818181;
+        }
+    }
     &-right {
         display: flex;
         justify-content: flex-end;
