@@ -1,12 +1,12 @@
 import './amountField.scss';
 
-export const AmountField = ({ sumForTransfer, setDataForTransfer }) => {
+export const AmountField = ({ dataForTransfer, setDataForTransfer }) => {
     const getAmountPay = (e) => {
         const newValue = e.target.value.replace(/^0+/, "");
 
         if (+newValue > 9999999) return;
 
-        setDataForTransfer({ sum: newValue })
+        setDataForTransfer({ ...dataForTransfer, sum: newValue })
     }
 
     return (
@@ -18,7 +18,7 @@ export const AmountField = ({ sumForTransfer, setDataForTransfer }) => {
                     placeholder='200.00'
                     className="recharge-amount__input"
                     onChange={getAmountPay}
-                    value={sumForTransfer}
+                    value={dataForTransfer.sum}
                 />
                 <span className="recharge-amount__currency">UAH</span>
             </label>

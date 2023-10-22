@@ -2,10 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    top: 100%;
-    left: 0;
+    position: relative;
     width: 100%;
-    z-index: 5;
     padding: 5px 0;
     font-size: 14px;
 }
@@ -43,6 +41,8 @@
     }
     &__arrow-down {
         transform: rotate(90deg);
+        width: 24px;
+        
         &_up {
             transform: rotate(-90deg);
         }

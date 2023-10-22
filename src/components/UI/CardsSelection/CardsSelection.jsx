@@ -6,17 +6,19 @@ import { MyWallet } from '../../MyWallet/MyWallet';
 import RenderElement from '../../../utils/hocs/RenderElement';
 import useLocalStorage from '../../../utils/hooks/useLocalStorage';
 
-export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, dataForTransfer, setDataForTransfer }) => {
+export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, dataForTransfer }) => {
     const [customerCards, setCustomerCards] = useLocalStorage('dataCustomerCards', data.customerCards);
     const [indexCard, setIndexCard] = useState(0);
     const currentCard = customerCards[indexCard];
-    
+
     const btnClickHandler = () => {
         toggleElemVisibility(idSelection);
     }
 
     const chooseCard = (id) => {
         setIndexCard(id);
+
+        idSelection === 1 ? setDataForTransfer({ ...dataForTransfer, from: id }) : setDataForTransfer({ ...dataForTransfer, to: id });
     }
 
     return (

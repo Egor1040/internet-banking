@@ -1,40 +1,43 @@
-import { AmountField, CardForm, FastRechargeMobile } from '../../components';
+import { useState } from 'react';
+import { AmountField, CardsSelection, FastRechargeMobile, HeaderTransferPages, TotalAmount } from '../../components';
 import './rechargeMobile.scss';
 
+import { useDispatch } from 'react-redux';
+import { addHistoryTransfer } from '../../store/historyCardSlice';
 
 export const RechargeMobile = () => {
+    const dispatch = useDispatch();
+    const [dataForTransfer, setDataForTransfer] = useState({
+        from: '',
+        to: '',
+        sum: '',
+    });
+
+    const [isElemVisible, setElemVisible] = useState([
+        { id: 1, opened: false },
+    ]);
+
+    const toggleElemVisibility = (id) => {
+        setElemVisible(
+            isElemVisible.map(elemVisible => elemVisible.id === id ? { ...elemVisible, opened: !elemVisible.opened } : { ...elemVisible, opened: false })
+        )
+    }
+
+    const addCardTransfer = (e) => {
+        e.preventDefault();
+
+        if (!dataForTransfer.sum) return;
+        
+        dispatch(addHistoryTransfer(dataForTransfer))
+    }
+
     return (
         <div className='recharge-mobile'>
-            <div className="recharge-header">
-                <div className='recharge-header__headline'>
-                    <div className="recharge-header__title-icon">
-                        <img src="img/icons/icons-with-bg/phone.svg" alt="phone" />
-                    </div>
-                    <div className='recharge-header__text'>
-                        <h2 className="recharge-header__title">Поповнення</h2>
-                        <div className="recharge-header__descr">Поповнити мобільний онлайн.</div>
-                    </div>
-                </div>
-                <div className="recharge-header__icons-operators">
-                    <div className="recharge-header__icon-operator">
-                        <img src="./img/icons/operators/kyivstar.svg" alt="kyivstar" />
-                    </div>
-                    <div className="recharge-header__icon-operator">
-                        <img src="./img/icons/operators/lifecel.svg" alt="lifecel" />
-                    </div>
-                    <div className="recharge-header__icon-operator">
-                        <img src="./img/icons/operators/3-mob.svg" alt="3-mob" />
-                    </div>
-                    <div className="recharge-header__icon-operator">
-                        <img src="./img/icons/operators/vodafone.svg" alt="vodafone" />
-                    </div>
-                    <div className="recharge-header__icon-operator">
-                        <img src="./img/icons/operators/intertelecom.svg" alt="intertelecom" />
-                    </div>
-                </div>
-            </div>
+
+            <HeaderTransferPages />
+
             <div className="recharge-main">
-                <form className="recharge-form">
+                <form onSubmit={addCardTransfer} className="recharge-form">
                     <div className='recharge-form__mobile'>
                         <div className="recharge-form__title-mobile">Номер</div>
 
@@ -42,26 +45,26 @@ export const RechargeMobile = () => {
 
                     </div>
 
-                    <AmountField />
+                    <AmountField
+                        dataForTransfer={dataForTransfer}
+                        setDataForTransfer={setDataForTransfer}
+                    />
 
-                    <div className='total-amount'>
-                        <div className="total-amount__item">
-                            <div className="total-amount__title">Комісія</div>
-                            <div className="total-amount__sum">0 UAH</div>
-                        </div>
-                        <div className="total-amount__item">
-                            <div className="total-amount__title">До сплати</div>
-                            <div className="total-amount__sum"> UAH</div>
-                        </div>
-                    </div>
+                    <TotalAmount />
 
-                    <CardForm />
+                    <CardsSelection
+                        title={'З картки'}
+                        idSelection={isElemVisible[0].id}
+                        openedSelection={isElemVisible[0].opened}
+                        toggleElemVisibility={toggleElemVisibility}
+                        dataForTransfer={dataForTransfer}
+                        setDataForTransfer={setDataForTransfer}
+                    />
 
                     <div className="recharge-form__terms-use">
                         Натискаючи кнопку "Поповнити" Ви приймаєте умови
                         <span> користування сервісом</span>
                     </div>
-
                     <button className='recharge-form__confirmation' type='submit'>Додати в кошик</button>
                 </form>
                 <div className="recharge-main__img-decor">

@@ -1,15 +1,15 @@
 import '../TransferToCard/transferToCard.scss';
 import { useState } from 'react';
 import { AmountField, CardsSelection } from '../../components';
-
+import data from '../../data/data.json';
 import { useDispatch } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
 
 export const TransferToCard = () => {
     const dispatch = useDispatch();
     const [dataForTransfer, setDataForTransfer] = useState({
-        from: '',
-        to: '',
+        from: data.customerCards[0].id,
+        to: data.customerCards[0].id,
         sum: '',
     });
 
@@ -27,6 +27,8 @@ export const TransferToCard = () => {
     const addCardTransfer = (e) => {
         e.preventDefault();
 
+        if (!dataForTransfer.sum) return;
+        
         dispatch(addHistoryTransfer(dataForTransfer))
     }
 
@@ -79,7 +81,7 @@ export const TransferToCard = () => {
                     </div>
 
                     <AmountField
-                        sumForTransfer={dataForTransfer.sum}
+                        dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
                     />
 
