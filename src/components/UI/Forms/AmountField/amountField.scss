@@ -25,6 +25,16 @@
         color: inherit;
         padding: 10px 32px 10px 0;
 
+        &_empty {
+            &.recharge-amount__input {
+                border-color: #ff5b5c;
+                
+                &:hover {
+                    border-color: #ff5b5c;
+                }
+            }
+        }
+
         &::placeholder {
             color: #757575;
         }

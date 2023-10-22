@@ -1,0 +1,21 @@
+.total-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    width: 100%;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__title {
+        color: #929999;
+    }
+
+    &__sum {
+        color: #e2e2e2;
+    }
+}

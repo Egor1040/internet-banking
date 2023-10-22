@@ -3,6 +3,16 @@
         &__input {
             padding-left: 124px;
             color: #e2e2e2;
+
+            &_empty {
+                &.widget-form__input {
+                    border-color: #ff5b5c;
+
+                    &:hover {
+                        border-color: #ff5b5c;
+                    }
+                }
+            }
         }
 
         &__operator {

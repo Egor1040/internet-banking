@@ -18,6 +18,8 @@ export const TransferToCard = () => {
         { id: 2, opened: false },
     ]);
 
+    const [isEmptyInput, setIsEmptyInput] = useState(false);
+
     const toggleElemVisibility = (id) => {
         setElemVisible(
             isElemVisible.map(elemVisible => elemVisible.id === id ? { ...elemVisible, opened: !elemVisible.opened } : { ...elemVisible, opened: false })
@@ -27,9 +29,13 @@ export const TransferToCard = () => {
     const addCardTransfer = (e) => {
         e.preventDefault();
 
-        if (!dataForTransfer.sum) return;
+        if (!dataForTransfer.sum) {
+            setIsEmptyInput(true);
+            return;
+        };
         
-        dispatch(addHistoryTransfer(dataForTransfer))
+        dispatch(addHistoryTransfer(dataForTransfer));
+        setIsEmptyInput(false);
     }
 
     return (
@@ -83,6 +89,8 @@ export const TransferToCard = () => {
                     <AmountField
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
+                        setIsEmptyInput={setIsEmptyInput}
+                        isEmptyInput={isEmptyInput}
                     />
 
                     <div className="transfer-form__prompt">

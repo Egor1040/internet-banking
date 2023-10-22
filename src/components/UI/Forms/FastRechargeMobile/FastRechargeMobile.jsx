@@ -3,15 +3,19 @@ import RenderElement from '../../../../utils/hocs/RenderElement';
 import { WidgetButton } from '../../Buttons/WidgetButton/WidgetButton';
 import './fastRechargeMobile.scss';
 
-export const FastRechargeMobile = ({ isButton }) => {
+export const FastRechargeMobile = ({ isButton, setDataForTransfer, dataForTransfer, setIsEmptyPhone, isEmptyPhone }) => {
     const [value, setValue] = useState('');
 
     const getPhoneNumber = (e) => {
         const newValue = e.target.value;
 
-        if (newValue.length > 9) return;
+        if (newValue.length > 9) {
+            return;
+        };
 
-        setValue(newValue)
+        setDataForTransfer({ ...dataForTransfer, to: `+380${newValue}` });
+        setValue(newValue);
+        setIsEmptyPhone(false);
     }
 
     return (
@@ -28,7 +32,7 @@ export const FastRechargeMobile = ({ isButton }) => {
                 </div>
                 <input
                     type='number'
-                    className="widget-form__input"
+                    className={`widget-form__input ${isEmptyPhone ? 'widget-form__input_empty' : ''}`}
                     name='mobile'
                     placeholder='000000000'
                     onChange={getPhoneNumber}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AmountField, CardsSelection, FastRechargeMobile, HeaderTransferPages, TotalAmount } from '../../components';
+import data from '../../data/data.json';
 import './rechargeMobile.scss';
 
 import { useDispatch } from 'react-redux';
@@ -8,7 +9,7 @@ import { addHistoryTransfer } from '../../store/historyCardSlice';
 export const RechargeMobile = () => {
     const dispatch = useDispatch();
     const [dataForTransfer, setDataForTransfer] = useState({
-        from: '',
+        from: data.customerCards[0].id,
         to: '',
         sum: '',
     });
@@ -23,10 +24,21 @@ export const RechargeMobile = () => {
         )
     }
 
+    const [isEmptyInput, setIsEmptyInput] = useState(false);
+    const [isEmptyPhone, setIsEmptyPhone] = useState(false);
+
     const addCardTransfer = (e) => {
         e.preventDefault();
 
-        if (!dataForTransfer.sum) return;
+        if (dataForTransfer.to.length < 13) {
+            setIsEmptyPhone(true);
+            return;
+        }
+
+        if (!dataForTransfer.sum) {
+            setIsEmptyInput(true);
+            return;
+        };
         
         dispatch(addHistoryTransfer(dataForTransfer))
     }
@@ -41,13 +53,21 @@ export const RechargeMobile = () => {
                     <div className='recharge-form__mobile'>
                         <div className="recharge-form__title-mobile">Номер</div>
 
-                        <FastRechargeMobile isButton={false} />
+                        <FastRechargeMobile
+                            isButton={false}
+                            dataForTransfer={dataForTransfer}
+                            setDataForTransfer={setDataForTransfer}
+                            isEmptyPhone={isEmptyPhone}
+                            setIsEmptyPhone={setIsEmptyPhone}
+                        />
 
                     </div>
 
                     <AmountField
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
+                        setIsEmptyInput={setIsEmptyInput}
+                        isEmptyInput={isEmptyInput}
                     />
 
                     <TotalAmount />
