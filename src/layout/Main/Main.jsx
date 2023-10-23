@@ -10,8 +10,6 @@ export const Main = () => {
 
                     <Outlet />
 
-                    <SupportChat />
-
                 </div>
             </div>
         </main>

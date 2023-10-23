@@ -11,6 +11,7 @@ export * from './SupportChat/SupportChat';
 export * from './MyWallet/MyWallet';
 export * from './HeaderTransferPages/HeaderTransferPages';
 export * from './TotalAmount/TotalAmount';
+export * from './ServicesWidget/VideoWidget/VideoWidget';
 
 export * from './ServicesMenu/ServicesMenu/ServicesMenu';
 export * from './ServicesMenu/ServicesSubmenu/ServicesSubmenu';

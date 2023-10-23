@@ -7,23 +7,22 @@ export const Footer = () => {
                 <div className="footer-content">
                     <div className="support-info">
                         <div className="support-links">
-                            <a className="support-links__item" href='#'>Відділення</a>
-                            <a className="support-links__item" href='#'>Регламент і тарифи</a>
-                            <a className="support-links__item" href='#'>Про персональні дані</a>
-                            <a className="support-links__item" href='#'>Безпека</a>
-                            <a className="support-links__item" href='#'>API</a>
+                            <a className="support-links__item" href='#'>Історія банку</a>
+                            <a className="support-links__item" href='#'>Умови користування</a>
+                            <a className="support-links__item" href='#'>Новини</a>
+                            <a className="support-links__item" href='#'>Корисні ресурси</a>
                         </div>
                         <div className="support-contacts">
                             <div className="support-contacts__item">
-                                <div className="support-contacts__item-num">3700</div>
-                                <div className="support-contacts__item-descr">безкоштовно з мобільних</div>
+                                <div className="support-contacts__item-num">066 888 66 88</div>
+                                <div className="support-contacts__item-descr">для дзвінків по Україн</div>
                             </div>
                             <div className="support-contacts__item">
-                                <div className="support-contacts__item-num">+38-073-716-11-31</div>
-                                <div className="support-contacts__item-descr">для дзвінків з-за кордону</div>
+                                <div className="support-contacts__item-num">099 777 99 77</div>
+                                <div className="support-contacts__item-descr">для бізнес-клієнтів</div>
                             </div>
                         </div>
-                        <div className="copyright">© 2023 ПриватБанк Ліцензія № 22 від 19.03.1992</div>
+                        <div className="copyright">The site was developed by Igor Motriy and Dmytro Kalitventsev</div>
                     </div>
                     <div className="additional-info">
                         <div className='settings-site'>
@@ -31,7 +30,7 @@ export const Footer = () => {
                                 <div className="set-language__flag">
                                     <img src="img/icons/ukrainian-flag.svg" alt="flag" />
                                 </div>
-                                <div className="set-language__title">Українська</div>
+                                <div className="set-language__title">UA</div>
                                 <div className="set-language__more">
                                     <img src="img/icons/triangle.svg" alt="more" />
                                 </div>
@@ -48,8 +47,7 @@ export const Footer = () => {
                                     <img src="img/icons/store/apple.svg" alt="apple" />
                                 </div>
                                 <div className="installing-application__title">
-                                    Доступно в
-                                    <span> Apple store</span>
+                                    <span>Apple store</span>
                                 </div>
                             </div>
                             <div className="installing-application__item" title='Google Play'>
@@ -57,17 +55,7 @@ export const Footer = () => {
                                     <img src="img/icons/store/google-play.svg" alt="google" />
                                 </div>
                                 <div className="installing-application__title">
-                                    Доступно в
-                                    <span> Google Play</span>
-                                </div>
-                            </div>
-                            <div className="installing-application__item" title='AppGallery'>
-                                <div className="installing-application__img">
-                                    <img src="img/icons/store/huawei.svg" alt="huawei" />
-                                </div>
-                                <div className="installing-application__title">
-                                    Доступно в
-                                    <span> AppGallery</span>
+                                    <span>Google Play</span>
                                 </div>
                             </div>
                         </div>

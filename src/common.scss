@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
 
+:root {
+    --bg-color-firstly: #0f0f0f;
+    --bg-color-secondary: #303030;
+    --bg-color-element: #212121;
+    --text-color-firstly: #e2e2e2;
+    --text-color-secondary: #ffffff8a;
+    --border-color-firstly: #4d4d4d;
+    --border-color-secondary: #adadad;
+    --error-color: #ff5b5c;
+    --target-color: #8dc641;
+    --hover-target-color: #699f25;
+}
+
+[data-theme="light"] {
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,8 +28,6 @@ html {
 
 body {
     font-family: "Open Sans", sans-serif;
-    background-color: #0f0f0f;
-    color: #e2e2e2;
     font-weight: 400;
     font-size: 16px;
     height: 100%;
@@ -26,7 +40,6 @@ body {
     &::-webkit-scrollbar-track {
         background: #e2e2e2;
         box-shadow: 0 0 2px rgb(0, 0, 0, 0.2) inset;
-        
     }
 
     &::-webkit-scrollbar-thumb {
@@ -58,6 +71,8 @@ a {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-color-firstly);
+    color: var(--text-color-firstly);
 }
 
 .container {

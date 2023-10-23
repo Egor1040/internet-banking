@@ -7,11 +7,16 @@
     padding: 16px 0;
 
     &_active {
+        background-color: #1b1b1b;
         display: none;
         position: absolute;
         left: 0px;
         top: 65px;
         z-index: 2;
+
+        .services-submenu {
+            background-color: #1b1b1b;
+        }
 
         & .overlay {
             display: block;

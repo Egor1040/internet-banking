@@ -30,7 +30,6 @@ export const Header = () => {
                                 <div className="login-img">
                                     <img src='img/icons/user.svg' alt='user' className="login-img__icon" />
                                 </div>
-                                <p className="login-title">Вхід</p>
                             </button>
                         </div>
                     </div>

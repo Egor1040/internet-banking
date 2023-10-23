@@ -24,12 +24,17 @@
     &-logo {
         height: 48px;
         width: 48px;
+        border-radius: 50%;
+        transition: background-color 0.3s ease 0s;
+        &:hover {
+            background-color: #39422e;
+        }
         &__icon {
             width: 100%;
             height: 100%;
             display: block;
-            background: url(../../../public/img/logo.svg) no-repeat center;
-            background-size: contain; 
+            background: url(../../../public/img/logo.png) no-repeat center;
+            background-size: contain;
         }
     }
     &-service {
@@ -46,7 +51,7 @@
             &::after {
                 bottom: 0;
                 position: absolute;
-                content: '';
+                content: "";
                 width: 100%;
                 border-bottom: 3px solid #818181;
             }
@@ -54,7 +59,7 @@
                 display: block;
             }
         }
-        
+
         &__img {
             margin-left: 8px;
             transform: rotate(90deg);
@@ -76,7 +81,7 @@
         &:hover::after {
             bottom: 0;
             position: absolute;
-            content: '';
+            content: "";
             width: 100%;
             border-bottom: 3px solid #818181;
         }
@@ -111,7 +116,7 @@
     line-height: 1.5;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
-    padding: 8px 16px;
+    padding: 11px;
     border-radius: 100px;
     color: rgb(141, 198, 65);
     background: transparent;
@@ -120,6 +125,7 @@
     border-style: solid;
     border-width: 1px;
     border-color: rgb(141, 198, 65);
+    transition: background-color 0.3s ease 0s;
     &:hover {
         background-color: #39422e;
         fill: #629226;
@@ -129,10 +135,9 @@
         border-left: 1px solid #595959;
     }
     &-img {
-        margin-right: 4px;
         width: 24px;
         height: 24px;
-        &__icon{
+        &__icon {
             display: block;
             background-size: contain;
             width: 100%;
