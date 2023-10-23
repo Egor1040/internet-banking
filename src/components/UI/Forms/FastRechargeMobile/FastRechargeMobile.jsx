@@ -1,11 +1,8 @@
-import { useState } from 'react';
 import RenderElement from '../../../../utils/hocs/RenderElement';
 import { WidgetButton } from '../../Buttons/WidgetButton/WidgetButton';
 import './fastRechargeMobile.scss';
 
 export const FastRechargeMobile = ({ isButton, setDataForTransfer, dataForTransfer, setIsEmptyPhone, isEmptyPhone }) => {
-    const [value, setValue] = useState('');
-
     const getPhoneNumber = (e) => {
         const newValue = e.target.value;
 
@@ -14,7 +11,6 @@ export const FastRechargeMobile = ({ isButton, setDataForTransfer, dataForTransf
         };
 
         setDataForTransfer({ ...dataForTransfer, to: `+380${newValue}` });
-        setValue(newValue);
         setIsEmptyPhone(false);
     }
 
@@ -36,7 +32,7 @@ export const FastRechargeMobile = ({ isButton, setDataForTransfer, dataForTransf
                     name='mobile'
                     placeholder='000000000'
                     onChange={getPhoneNumber}
-                    value={value}
+                    value={dataForTransfer.to.slice(4)}
                 />
             </label>
 

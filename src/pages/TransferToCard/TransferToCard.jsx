@@ -40,6 +40,7 @@ export const TransferToCard = () => {
         };
 
         dispatch(addHistoryTransfer(dataForTransfer));
+        setDataForTransfer({ ...dataForTransfer, sum: '' })
         setIsEmptyInput(false);
         setSuccessCheck(true);
     }
@@ -52,7 +53,7 @@ export const TransferToCard = () => {
         return () => {
             clearInterval(interval);
         }
-    }, []);
+    }, [successCheck]);
 
     return (
         <div className='transfer-cards'>

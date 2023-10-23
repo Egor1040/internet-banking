@@ -52,6 +52,7 @@ export const RechargeMobile = () => {
         if (cardSame) return;
 
         dispatch(addHistoryTransfer(dataForTransfer));
+        setDataForTransfer({ ...dataForTransfer, to: '', sum: '' })
         setSuccessCheck(true);
     }
 
@@ -63,7 +64,7 @@ export const RechargeMobile = () => {
         return () => {
             clearInterval(interval);
         }
-    }, []);
+    }, [successCheck]);
 
     return (
         <div className='recharge-mobile'>
