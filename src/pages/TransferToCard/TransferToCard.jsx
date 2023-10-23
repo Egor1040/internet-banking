@@ -1,12 +1,14 @@
 import '../TransferToCard/transferToCard.scss';
-import { useState } from 'react';
-import { AmountField, CardsSelection } from '../../components';
+import { useEffect, useState } from 'react';
+import { AmountField, CardsSelection, SuccessCheck } from '../../components';
 import data from '../../data/data.json';
 import { useDispatch } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
+import RenderElement from '../../utils/hocs/RenderElement';
 
 export const TransferToCard = () => {
     const dispatch = useDispatch();
+    const [successCheck, setSuccessCheck] = useState(false);
     const [dataForTransfer, setDataForTransfer] = useState({
         from: data.customerCards[0].id,
         to: data.customerCards[0].id,
@@ -39,7 +41,18 @@ export const TransferToCard = () => {
 
         dispatch(addHistoryTransfer(dataForTransfer));
         setIsEmptyInput(false);
+        setSuccessCheck(true);
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSuccessCheck(false);
+        }, 2000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, []);
 
     return (
         <div className='transfer-cards'>
@@ -109,6 +122,11 @@ export const TransferToCard = () => {
                 <div className="transfer-main__img">
                     <img src="img/arms-with-phone.svg" alt="ads-mobile" />
                 </div>
+
+                <RenderElement data={successCheck}>
+                    <SuccessCheck />
+                </RenderElement>
+
             </div>
         </div>
     );

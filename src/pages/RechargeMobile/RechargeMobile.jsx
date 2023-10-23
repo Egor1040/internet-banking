@@ -1,14 +1,16 @@
-import { useState } from 'react';
-import { AmountField, CardsSelection, FastRechargeMobile, HeaderTransferPages, TotalAmount } from '../../components';
+import { useEffect, useState } from 'react';
+import { AmountField, CardsSelection, FastRechargeMobile, HeaderTransferPages, SuccessCheck, TotalAmount } from '../../components';
 import data from '../../data/data.json';
 import './rechargeMobile.scss';
 
 import { useDispatch } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
+import RenderElement from '../../utils/hocs/RenderElement';
 
 export const RechargeMobile = () => {
-    const [cardSame, setCardSame] = useState();
     const dispatch = useDispatch();
+    const [cardSame, setCardSame] = useState();
+    const [successCheck, setSuccessCheck] = useState(false);
     const [dataForTransfer, setDataForTransfer] = useState({
         from: data.customerCards[0].id,
         to: '',
@@ -36,16 +38,32 @@ export const RechargeMobile = () => {
             return;
         }
 
+        if (dataForTransfer.sum.slice(0, 1) === '-') {
+            setIsEmptyInput(true);
+            return;
+        };
+
         if (!dataForTransfer.sum) {
             setIsEmptyInput(true);
             return;
         };
-        
+
         dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false)
-        if(cardSame) return; 
-        
-        dispatch(addHistoryTransfer(dataForTransfer))
+        if (cardSame) return;
+
+        dispatch(addHistoryTransfer(dataForTransfer));
+        setSuccessCheck(true);
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSuccessCheck(false);
+        }, 2000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, []);
 
     return (
         <div className='recharge-mobile'>
@@ -74,8 +92,6 @@ export const RechargeMobile = () => {
                         isEmptyInput={isEmptyInput}
                     />
 
-                    <TotalAmount />
-
                     <CardsSelection
                         title={'З картки'}
                         idSelection={isElemVisible[0].id}
@@ -90,11 +106,16 @@ export const RechargeMobile = () => {
                         Натискаючи кнопку "Поповнити" Ви приймаєте умови
                         <span> користування сервісом</span>
                     </div>
-                    <button className='recharge-form__confirmation' type='submit'>Додати в кошик</button>
+                    <button className='recharge-form__confirmation' type='submit'>Поповнити</button>
                 </form>
                 <div className="recharge-main__img-decor">
                     <img src="./img/city.svg" alt="city" />
                 </div>
+
+                <RenderElement data={successCheck}>
+                    <SuccessCheck />
+                </RenderElement>
+
             </div>
         </div>
     );
