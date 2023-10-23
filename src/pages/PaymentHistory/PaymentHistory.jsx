@@ -1,7 +1,10 @@
 import React from 'react';
 import '../PaymentHistory/paymentHistory.scss';
+import { useSelector } from 'react-redux';
 
 export const PaymentHistory = () => {
+    const paymentHistory = useSelector(state => state.historyCards.historyCards);
+    console.log(paymentHistory)
     return (
         <div className='payment-history'>
             <div className="payment-header">
@@ -34,19 +37,24 @@ export const PaymentHistory = () => {
                     </div>
                     <table className='payment-main__table'>
                         <thead className='payment-main__table-title'>
-                               <tr className='payment-main__table-subtitle'>
-                                    <th className='payment-main__table-item'>Відправник</th>
-                                    <th className='payment-main__table-item'>Одержувач</th>
-                                    <th className='payment-main__table-item'>Сума</th>
-                                </tr> 
-                        </thead> 
-                        <tbody className='payment-main__table-info'>
-                            {/* Рендер сюди через tr */}
-                            <tr className='payment-main__table-body'>
-                                <td className='payment-main__table-child'>* 1222 Інтернет картка</td>
-                                <td className='payment-main__table-child'>* 3232 Картка Універсальна Голд</td>
-                                <td className='payment-main__table-child'>600.54 UAH</td>
+                            <tr className='payment-main__table-subtitle'>
+                                <th className='payment-main__table-item'>Відправник</th>
+                                <th className='payment-main__table-item'>Одержувач</th>
+                                <th className='payment-main__table-item'>Сума</th>
                             </tr>
+                        </thead>
+                        <tbody className='payment-main__table-info'>
+
+                            {
+                                paymentHistory?.map(({ from, to, sum }) => (
+                                    <tr key={crypto.randomUUID()} className='payment-main__table-body'>
+                                        <td className='payment-main__table-child'>{from}</td>
+                                        <td className='payment-main__table-child'>{to}</td>
+                                        <td className='payment-main__table-child'>{sum} UAH</td>
+                                    </tr>
+                                ))
+                            }
+
                         </tbody>
                     </table>
                 </div>
