@@ -18,6 +18,7 @@ export const CardsSelection = ({ title, toggleElemVisibility, idSelection, opene
     const chooseCard = (id) => {
         setIndexCard(id);
         setCardSame(false);
+        toggleElemVisibility(idSelection);
         idSelection === 1 ? setDataForTransfer({ ...dataForTransfer, from: id }) : setDataForTransfer({ ...dataForTransfer, to: id });
     }
 

@@ -1,7 +1,7 @@
+import './rechargeMobile.scss';
 import { useEffect, useState } from 'react';
 import { AmountField, CardsSelection, FastRechargeMobile, HeaderTransferPages, SuccessCheck, TotalAmount } from '../../components';
 import data from '../../data/data.json';
-import './rechargeMobile.scss';
 
 import { useDispatch } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
@@ -41,11 +41,11 @@ export const RechargeMobile = () => {
             return;
         };
 
-        dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false)
+        dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false);
         if (cardSame) return;
 
         dispatch(addHistoryTransfer(dataForTransfer));
-        setDataForTransfer({ ...dataForTransfer, to: '', sum: '' })
+        setDataForTransfer({ ...dataForTransfer, to: '', sum: '' });
         setSuccessCheck(true);
     }
 

@@ -24,7 +24,7 @@ export const TransferToCard = () => {
     const addCardTransfer = (e) => {
         e.preventDefault();
 
-        dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false)
+        dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false);
         if (cardSame) return;
 
         if (!dataForTransfer.sum) {
