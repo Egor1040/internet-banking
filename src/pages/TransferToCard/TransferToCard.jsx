@@ -5,6 +5,7 @@ import data from '../../data/data.json';
 import { useDispatch } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
 import RenderElement from '../../utils/hocs/RenderElement';
+import useToggleElements from '../../utils/hooks/useToggleElements';
 
 export const TransferToCard = () => {
     const dispatch = useDispatch();
@@ -14,19 +15,11 @@ export const TransferToCard = () => {
         to: data.customerCards[0].id,
         sum: '',
     });
+
+    const { toggleElemVisibility, firstElementVisible, secondElementVisible } = useToggleElements();
+
     const [cardSame, setCardSame] = useState();
-    const [isElemVisible, setElemVisible] = useState([
-        { id: 1, opened: false },
-        { id: 2, opened: false },
-    ]);
-
     const [isEmptyInput, setIsEmptyInput] = useState(false);
-
-    const toggleElemVisibility = (id) => {
-        setElemVisible(
-            isElemVisible.map(elemVisible => elemVisible.id === id ? { ...elemVisible, opened: !elemVisible.opened } : { ...elemVisible, opened: false })
-        )
-    }
 
     const addCardTransfer = (e) => {
         e.preventDefault();
@@ -81,32 +74,30 @@ export const TransferToCard = () => {
             </div>
             <div className="transfer-main">
                 <form onSubmit={addCardTransfer} className="transfer-form">
-                    <div className="transfer-form__card">
-                        <CardsSelection
-                            title="З картки"
-                            idSelection={isElemVisible[0].id}
-                            openedSelection={isElemVisible[0].opened}
-                            toggleElemVisibility={toggleElemVisibility}
-                            dataForTransfer={dataForTransfer}
-                            setDataForTransfer={setDataForTransfer}
-                            setCardSame={setCardSame}
-                        />
-                    </div>
+                    <CardsSelection
+                        title="З картки"
+                        idSelection={firstElementVisible.id}
+                        openedSelection={firstElementVisible.opened}
+                        toggleElemVisibility={toggleElemVisibility}
+                        dataForTransfer={dataForTransfer}
+                        setDataForTransfer={setDataForTransfer}
+                        setCardSame={setCardSame}
+                    />
 
-                    <div className="transfer-form__card">
-                        <CardsSelection
-                            title="Картка одержувача"
-                            idSelection={isElemVisible[1].id}
-                            openedSelection={isElemVisible[1].opened}
-                            toggleElemVisibility={toggleElemVisibility}
-                            dataForTransfer={dataForTransfer}
-                            setDataForTransfer={setDataForTransfer}
-                            setCardSame={setCardSame}
-                        />
-                    </div>
+                    <CardsSelection
+                        title="Картка одержувача"
+                        idSelection={secondElementVisible.id}
+                        openedSelection={secondElementVisible.opened}
+                        toggleElemVisibility={toggleElemVisibility}
+                        dataForTransfer={dataForTransfer}
+                        setDataForTransfer={setDataForTransfer}
+                        setCardSame={setCardSame}
+                    />
+                    
                     <div className='transfer-form__error-same'>
                         {cardSame && "Карта відправника і одержувача збігаються"}
                     </div>
+
                     <AmountField
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}

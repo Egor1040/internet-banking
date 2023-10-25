@@ -6,6 +6,7 @@ import './rechargeMobile.scss';
 import { useDispatch } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
 import RenderElement from '../../utils/hocs/RenderElement';
+import useToggleElements from '../../utils/hooks/useToggleElements';
 
 export const RechargeMobile = () => {
     const dispatch = useDispatch();
@@ -17,15 +18,7 @@ export const RechargeMobile = () => {
         sum: '',
     });
 
-    const [isElemVisible, setElemVisible] = useState([
-        { id: 1, opened: false },
-    ]);
-
-    const toggleElemVisibility = (id) => {
-        setElemVisible(
-            isElemVisible.map(elemVisible => elemVisible.id === id ? { ...elemVisible, opened: !elemVisible.opened } : { ...elemVisible, opened: false })
-        )
-    }
+    const { toggleElemVisibility, firstElementVisible } = useToggleElements();
 
     const [isEmptyInput, setIsEmptyInput] = useState(false);
     const [isEmptyPhone, setIsEmptyPhone] = useState(false);
@@ -95,8 +88,8 @@ export const RechargeMobile = () => {
 
                     <CardsSelection
                         title={'З картки'}
-                        idSelection={isElemVisible[0].id}
-                        openedSelection={isElemVisible[0].opened}
+                        idSelection={firstElementVisible.id}
+                        openedSelection={firstElementVisible.opened}
                         toggleElemVisibility={toggleElemVisibility}
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
