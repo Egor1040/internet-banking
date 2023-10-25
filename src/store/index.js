@@ -11,10 +11,12 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import historyCardReducer from "./historyCardSlice";
+import customersCardsReducer from './customersCardsSlice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
     historyCards: historyCardReducer,
+    customersCards: customersCardsReducer
 });
 
 const persistConfig = {

@@ -1,19 +1,21 @@
 import '../TransferToCard/transferToCard.scss';
 import { useEffect, useState } from 'react';
 import { AmountField, CardsSelection, SuccessCheck } from '../../components';
-import data from '../../data/data.json';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
 import RenderElement from '../../utils/hocs/RenderElement';
+import { recalcCardsBalance } from '../../store/customersCardsSlice';
 
 export const TransferToCard = () => {
+    const customersCards = useSelector(state => state.customersCards.customersCards);
     const dispatch = useDispatch();
     const [successCheck, setSuccessCheck] = useState(false);
     const [dataForTransfer, setDataForTransfer] = useState({
-        from: data.customerCards[0].id,
-        to: data.customerCards[0].id,
+        from: customersCards[0].number,
+        to: customersCards[0].number,
         sum: '',
     });
+
     const [cardSame, setCardSame] = useState();
     const [isElemVisible, setElemVisible] = useState([
         { id: 1, opened: false },
@@ -43,6 +45,7 @@ export const TransferToCard = () => {
         setDataForTransfer({ ...dataForTransfer, sum: '' })
         setIsEmptyInput(false);
         setSuccessCheck(true);
+        dispatch(recalcCardsBalance(dataForTransfer));
     }
 
     useEffect(() => {

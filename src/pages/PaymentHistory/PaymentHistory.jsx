@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 export const PaymentHistory = () => {
     const paymentHistory = useSelector(state => state.historyCards.historyCards);
-    console.log(paymentHistory)
+    
     return (
         <div className='payment-history'>
             <div className="payment-header">
