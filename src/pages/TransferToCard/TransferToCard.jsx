@@ -1,41 +1,48 @@
 import '../TransferToCard/transferToCard.scss';
 import { useEffect, useState } from 'react';
 import { AmountField, CardsSelection, SuccessCheck } from '../../components';
-import data from '../../data/data.json';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addHistoryTransfer } from '../../store/historyCardSlice';
+import { recalcCardsBalance } from '../../store/customersCardsSlice';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
 
+
 export const TransferToCard = () => {
     const dispatch = useDispatch();
+    const customersCards = useSelector(state => state.customersCards.customersCards);
+
     const [successCheck, setSuccessCheck] = useState(false);
     const [dataForTransfer, setDataForTransfer] = useState({
-        from: data.customerCards[0].id,
-        to: data.customerCards[0].id,
+        from: customersCards[0].number,
+        to: customersCards[0].number,
         sum: '',
     });
 
     const { toggleElemVisibility, firstElementVisible, secondElementVisible } = useToggleElements();
-
-    const [cardSame, setCardSame] = useState();
+    const [cardSame, setCardSame] = useState(true);
+    const [showWarningCardSame, setShowWarningCardSame] = useState(false);
     const [isEmptyInput, setIsEmptyInput] = useState(false);
 
     const addCardTransfer = (e) => {
         e.preventDefault();
 
         dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false);
-        if (cardSame) return;
+
+        if (cardSame) {
+            setShowWarningCardSame(true);
+            return;
+        };
 
         if (!dataForTransfer.sum) {
             setIsEmptyInput(true);
             return;
         };
-
-        dispatch(addHistoryTransfer(dataForTransfer));
-        setDataForTransfer({ ...dataForTransfer, sum: '' })
-        setIsEmptyInput(false);
+        
         setSuccessCheck(true);
+        dispatch(addHistoryTransfer(dataForTransfer));
+        dispatch(recalcCardsBalance(dataForTransfer));
+        setDataForTransfer({ ...dataForTransfer, sum: '' })
     }
 
     useEffect(() => {
@@ -82,6 +89,7 @@ export const TransferToCard = () => {
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
                         setCardSame={setCardSame}
+                        setShowWarningCardSame={setShowWarningCardSame}
                     />
 
                     <CardsSelection
@@ -92,10 +100,11 @@ export const TransferToCard = () => {
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
                         setCardSame={setCardSame}
+                        setShowWarningCardSame={setShowWarningCardSame}
                     />
-                    
+
                     <div className='transfer-form__error-same'>
-                        {cardSame && "Карта відправника і одержувача збігаються"}
+                        {showWarningCardSame && "Карта відправника і одержувача збігаються"}
                     </div>
 
                     <AmountField

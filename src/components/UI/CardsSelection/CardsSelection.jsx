@@ -1,15 +1,14 @@
 import './cardsSelection.scss';
-import data from '../../../data/data.json';
 import { useState } from 'react';
 import { CustomerCard } from '../CustomerCard/CustomerCard';
 import { MyWallet } from '../../MyWallet/MyWallet';
 import RenderElement from '../../../utils/hocs/RenderElement';
-import useLocalStorage from '../../../utils/hooks/useLocalStorage';
+import { useSelector } from 'react-redux';
 
-export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, dataForTransfer, setCardSame }) => {
-    const [customerCards, setCustomerCards] = useLocalStorage('dataCustomerCards', data.customerCards);
+export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, dataForTransfer, setCardSame, setShowWarningCardSame }) => {
+    const customersCards = useSelector(state => state.customersCards.customersCards);
     const [indexCard, setIndexCard] = useState(0);
-    const currentCard = customerCards[indexCard];
+    const currentCard = customersCards[indexCard];
 
     const btnClickHandler = () => {
         toggleElemVisibility(idSelection);
@@ -17,9 +16,9 @@ export const CardsSelection = ({ title, toggleElemVisibility, idSelection, opene
 
     const chooseCard = (id) => {
         setIndexCard(id);
-        setCardSame(false);
+        setShowWarningCardSame(false);
         toggleElemVisibility(idSelection);
-        idSelection === 1 ? setDataForTransfer({ ...dataForTransfer, from: id }) : setDataForTransfer({ ...dataForTransfer, to: id });
+        idSelection === 1 ? setDataForTransfer({ ...dataForTransfer, from: currentCard.number }) : setDataForTransfer({ ...dataForTransfer, to: currentCard.number });
     }
 
     return (
@@ -47,7 +46,7 @@ export const CardsSelection = ({ title, toggleElemVisibility, idSelection, opene
             <RenderElement data={openedSelection}>
                 <div className='card-selection__selections'>
                     {
-                        customerCards.map(card => <CustomerCard
+                        customersCards.map(card => <CustomerCard
                             key={crypto.randomUUID()}
                             data={card}
                             chooseCard={chooseCard}

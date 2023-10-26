@@ -7,7 +7,7 @@
             "cardholder": "Ivan Bilinskii",
             "expiryData": "10/24",
             "CVV": "321",
-            "balance": "2000"
+            "balance": 2000
         },
         {
             "id": "1",
@@ -16,7 +16,7 @@
             "cardholder": "Ivan Bilinskii",
             "expiryData": "03/22",
             "CVV": "145",
-            "balance": "3000"
+            "balance": 3000
         },
         {
             "id": "2",
@@ -25,7 +25,7 @@
             "cardholder": "Ivan Bilinskii",
             "expiryData": "01/26",
             "CVV": "598",
-            "balance": "4000"
+            "balance": 4000
         }
     ],
     "counteragents": {
