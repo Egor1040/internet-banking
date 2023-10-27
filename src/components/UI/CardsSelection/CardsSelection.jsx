@@ -5,27 +5,26 @@ import { MyWallet } from '../../MyWallet/MyWallet';
 import RenderElement from '../../../utils/hocs/RenderElement';
 import { useSelector } from 'react-redux';
 
-export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, dataForTransfer, setCardSame, setShowWarningCardSame }) => {
+export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, dataForTransfer, setShowWarningCardSame }) => {
     const customersCards = useSelector(state => state.customersCards.customersCards);
-    const [indexCard, setIndexCard] = useState(0);
-    const currentCard = customersCards[indexCard];
+    const [idCard, setIdCard] = useState(1);
+    const currentCard = customersCards.find(card => card.id === idCard);
 
     const btnClickHandler = () => {
         toggleElemVisibility(idSelection);
     }
 
     const chooseCard = (id) => {
-        setIndexCard(id);
+        setIdCard(id);
+        
+        idSelection === 1 ? setDataForTransfer({ ...dataForTransfer, from: currentCard.number }) : setDataForTransfer({ ...dataForTransfer, to: currentCard.number });
         setShowWarningCardSame(false);
         toggleElemVisibility(idSelection);
-        idSelection === 1 ? setDataForTransfer({ ...dataForTransfer, from: currentCard.number }) : setDataForTransfer({ ...dataForTransfer, to: currentCard.number });
     }
 
     return (
         <div className="cards-selection">
-            <div className="cards-selection__option">
-                <MyWallet titleText={title} />
-            </div>
+            <MyWallet titleText={title} />
 
             <div className="card-selection__card" onClick={btnClickHandler}>
                 <div className="card-selection__img">

@@ -20,29 +20,26 @@ export const TransferToCard = () => {
     });
 
     const { toggleElemVisibility, firstElementVisible, secondElementVisible } = useToggleElements();
-    const [cardSame, setCardSame] = useState(true);
     const [showWarningCardSame, setShowWarningCardSame] = useState(false);
     const [isEmptyInput, setIsEmptyInput] = useState(false);
 
     const addCardTransfer = (e) => {
         e.preventDefault();
 
-        dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false);
-
-        if (cardSame) {
+        if (dataForTransfer.from === dataForTransfer.to) {
             setShowWarningCardSame(true);
             return;
         };
 
-        if (!dataForTransfer.sum) {
+        if (!dataForTransfer.sum || dataForTransfer.sum.slice(0, 1) === '-') {
             setIsEmptyInput(true);
             return;
         };
-        
-        setSuccessCheck(true);
+
         dispatch(addHistoryTransfer(dataForTransfer));
         dispatch(recalcCardsBalance(dataForTransfer));
-        setDataForTransfer({ ...dataForTransfer, sum: '' })
+        setDataForTransfer({ ...dataForTransfer, sum: '' });
+        setSuccessCheck(true);
     }
 
     useEffect(() => {
@@ -88,7 +85,6 @@ export const TransferToCard = () => {
                         toggleElemVisibility={toggleElemVisibility}
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
-                        setCardSame={setCardSame}
                         setShowWarningCardSame={setShowWarningCardSame}
                     />
 
@@ -99,7 +95,6 @@ export const TransferToCard = () => {
                         toggleElemVisibility={toggleElemVisibility}
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
-                        setCardSame={setCardSame}
                         setShowWarningCardSame={setShowWarningCardSame}
                     />
 

@@ -2,7 +2,7 @@ import './customerCard.scss';
 
 export const CustomerCard = ({ data, chooseCard }) => {
     const { number, nameCard, balance, id } = data;
-
+    
     return (
         <div className="customer-card" onClick={() => chooseCard(id)}>
             <div className="customer-card__icon">
