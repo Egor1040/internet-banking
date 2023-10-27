@@ -18,8 +18,8 @@ export const CardsSelection = ({ title, toggleElemVisibility, idSelection, opene
         setIdCard(id);
 
         idSelection === 1
-            ? setDataForTransfer(prev => ({ ...prev, from: currentCard.number }))
-            : setDataForTransfer(prev => ({ ...prev, to: currentCard.number }));
+            ? setDataForTransfer(prev => ({ ...prev, from: customersCards[id - 1].number }))
+            : setDataForTransfer(prev => ({ ...prev, to: customersCards[id - 1].number }));
 
         setShowWarningCardSame && setShowWarningCardSame(false);
         toggleElemVisibility(idSelection);

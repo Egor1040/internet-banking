@@ -27,6 +27,7 @@ export const TransferToCard = () => {
     const addCardTransfer = (e) => {
         e.preventDefault();
 
+        console.log(dataForTransfer)
         if (dataForTransfer.from === dataForTransfer.to) {
             setShowWarningCardSame(true);
             return;
