@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/internet-banking/static/css/main.edb6bf2d.css",
-    "main.js": "/internet-banking/static/js/main.cc8c539c.js",
-    "static/media/map.png": "/internet-banking/static/media/map.0782983fd89fa01e131e.png",
-    "static/media/logo.svg": "/internet-banking/static/media/logo.d4cd38d35168a11127c4.svg",
+    "main.css": "/internet-banking/static/css/main.a163784f.css",
+    "main.js": "/internet-banking/static/js/main.28227117.js",
+    "static/media/logo.png": "/internet-banking/static/media/logo.4d9a6d322a81782d540b.png",
     "index.html": "/internet-banking/index.html",
-    "main.edb6bf2d.css.map": "/internet-banking/static/css/main.edb6bf2d.css.map",
-    "main.cc8c539c.js.map": "/internet-banking/static/js/main.cc8c539c.js.map"
+    "main.a163784f.css.map": "/internet-banking/static/css/main.a163784f.css.map",
+    "main.28227117.js.map": "/internet-banking/static/js/main.28227117.js.map"
   },
   "entrypoints": [
-    "static/css/main.edb6bf2d.css",
-    "static/js/main.cc8c539c.js"
+    "static/css/main.a163784f.css",
+    "static/js/main.28227117.js"
   ]
 }
