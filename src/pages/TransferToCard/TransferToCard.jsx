@@ -19,15 +19,16 @@ export const TransferToCard = () => {
         to: customersCards[0].number,
         sum: '',
     });
+    const currentCard = customersCards.find(el => el.number === dataForTransfer.from);
 
     const { toggleElemVisibility, firstElementVisible, secondElementVisible } = useToggleElements();
     const [showWarningCardSame, setShowWarningCardSame] = useState(false);
     const [isEmptyInput, setIsEmptyInput] = useState(false);
+    const [isNegativeBal, setIsNegativeBal] = useState(false);
 
     const addCardTransfer = (e) => {
         e.preventDefault();
 
-        console.log(dataForTransfer)
         if (dataForTransfer.from === dataForTransfer.to) {
             setShowWarningCardSame(true);
             return;
@@ -38,10 +39,16 @@ export const TransferToCard = () => {
             return;
         };
 
+        if(currentCard.balance - dataForTransfer.sum < 0) {
+            setIsNegativeBal(true);
+            return;
+        }
+
         dispatch(addHistoryTransfer(dataForTransfer));
         dispatch(transferBetweenCards(dataForTransfer));
         setDataForTransfer(prev => ({ ...prev, sum: '' }));
         setConfirmationOperation(true);
+        setIsNegativeBal(false);
     }
 
     useEffect(() => {
@@ -100,6 +107,7 @@ export const TransferToCard = () => {
 
                     <div className='transfer-form__error-same'>
                         {showWarningCardSame && "Карта відправника і одержувача збігаються"}
+                        {isNegativeBal && "Недостатньо коштів для проведення платежу"}
                     </div>
 
                     <AmountField
