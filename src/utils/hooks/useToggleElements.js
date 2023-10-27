@@ -8,7 +8,7 @@ const useToggleElements = () => {
 
     const toggleElemVisibility = (id) => {
         setElemVisible(
-            isElemVisible.map(elemVisible => elemVisible.id === id ? { ...elemVisible, opened: !elemVisible.opened } : { ...elemVisible, opened: false })
+            prev => prev.map(elemVisible => elemVisible.id === id ? { ...elemVisible, opened: !elemVisible.opened } : { ...elemVisible, opened: false })
         )
     }
 

@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router';
-import { SupportChat } from '../../components';
 import './main.scss';
 
 export const Main = () => {

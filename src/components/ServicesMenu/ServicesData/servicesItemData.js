@@ -10,24 +10,6 @@ export const servicesItemData = [
             }
         ]
     },
-
-    // In develop
-    // {
-    //     title: 'Платежі',
-    //     titleIcon: 'icons-with-bg/hryvnia.svg',
-    //     subMenu: [
-    //         {
-    //             title: 'Комунальні платежі',
-    //             titleIcon: 'icons-with-bg/communal.svg',
-    //             link: '/communal',
-    //         },
-    //         {
-    //             title: 'Інтернет та ТБ',
-    //             titleIcon: 'icons-with-bg/wifi.svg',
-    //             link: '/internet',
-    //         },
-    //     ]
-    // },
     {
         title: 'Зв\'язок',
         titleIcon: 'icons-with-bg/communication.svg',
@@ -37,23 +19,6 @@ export const servicesItemData = [
                 titleIcon: 'icons-with-bg/phone.svg',
                 link: '/recharge-mobile',
             },
-
-            // In develop
-            // {
-            //     title: 'Укртелеком',
-            //     titleIcon: 'counterparties/ukrtelecom.svg',
-            //     link: '/internet',
-            // },
-            // {
-            //     title: 'Тріолан',
-            //     titleIcon: 'counterparties/triolan.svg',
-            //     link: '/internet',
-            // },
-            // {
-            //     title: 'Воля',
-            //     titleIcon: 'counterparties/volia.svg',
-            //     link: '/internet',
-            // },
         ]
     },
 ];

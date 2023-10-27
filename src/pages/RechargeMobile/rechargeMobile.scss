@@ -28,23 +28,6 @@
     gap: 20px;
     width: 328px;
 
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-        width: 0;
-    }
-
-    &__mobile {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    &__title-mobile {
-        font-size: 12px;
-    }
-
     &__terms-use {
         font-size: 12px;
 

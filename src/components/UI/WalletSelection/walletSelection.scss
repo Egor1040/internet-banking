@@ -1,0 +1,33 @@
+.wallet-selection {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 14px;
+    padding-bottom: 8px;
+
+    &__title {
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #8dc641;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+            color: #699f24;
+        }
+    }
+
+    &__current {
+        white-space: nowrap;
+    }
+
+    &__icon {
+        display: flex;
+        width: 24px;
+    }
+}

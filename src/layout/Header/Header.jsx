@@ -1,7 +1,6 @@
-import React from 'react';
 import '../../layout/Header/header.scss';
-import { CurrencyExchange, PaymentHistory, ServicesMenu } from '../../components';
 import { Link } from 'react-router-dom';
+import { CurrencyExchange, ServicesMenu } from '../../components';
 
 export const Header = () => {
     return (

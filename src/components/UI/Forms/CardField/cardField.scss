@@ -1,0 +1,19 @@
+.card-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    background-color: #303030;
+    cursor: initial;
+
+    .form-styles {
+        &__input {
+            padding-left: 0;
+        }
+
+        &__icon {
+            left: initial;
+            right: 0;
+        }
+    }
+}

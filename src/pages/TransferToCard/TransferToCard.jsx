@@ -1,6 +1,6 @@
 import '../TransferToCard/transferToCard.scss';
 import { useEffect, useState } from 'react';
-import { AmountField, CardsSelection, SuccessCheck } from '../../components';
+import { AmountField, CardsSelection, ConfirmationMark } from '../../components';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
 
@@ -13,7 +13,7 @@ export const TransferToCard = () => {
     const dispatch = useDispatch();
     const customersCards = useSelector(state => state.customersCards.customersCards);
 
-    const [successCheck, setSuccessCheck] = useState(false);
+    const [confirmationOperation, setConfirmationOperation] = useState(false);
     const [dataForTransfer, setDataForTransfer] = useState({
         from: customersCards[0].number,
         to: customersCards[0].number,
@@ -39,19 +39,19 @@ export const TransferToCard = () => {
 
         dispatch(addHistoryTransfer(dataForTransfer));
         dispatch(transferBetweenCards(dataForTransfer));
-        setDataForTransfer({ ...dataForTransfer, sum: '' });
-        setSuccessCheck(true);
+        setDataForTransfer(prev => ({ ...prev, sum: '' }));
+        setConfirmationOperation(true);
     }
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setSuccessCheck(false);
+            setConfirmationOperation(false);
         }, 2000);
 
         return () => {
             clearInterval(interval);
         }
-    }, [successCheck]);
+    }, [confirmationOperation]);
 
     return (
         <div className='transfer-cards'>
@@ -84,7 +84,6 @@ export const TransferToCard = () => {
                         idSelection={firstElementVisible.id}
                         openedSelection={firstElementVisible.opened}
                         toggleElemVisibility={toggleElemVisibility}
-                        dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
                         setShowWarningCardSame={setShowWarningCardSame}
                     />
@@ -94,7 +93,6 @@ export const TransferToCard = () => {
                         idSelection={secondElementVisible.id}
                         openedSelection={secondElementVisible.opened}
                         toggleElemVisibility={toggleElemVisibility}
-                        dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
                         setShowWarningCardSame={setShowWarningCardSame}
                     />
@@ -120,8 +118,8 @@ export const TransferToCard = () => {
                     <img src="img/arms-with-phone.svg" alt="ads-mobile" />
                 </div>
 
-                <RenderElement data={successCheck}>
-                    <SuccessCheck />
+                <RenderElement data={confirmationOperation}>
+                    <ConfirmationMark />
                 </RenderElement>
 
             </div>

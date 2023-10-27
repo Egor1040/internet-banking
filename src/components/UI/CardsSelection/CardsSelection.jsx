@@ -1,11 +1,11 @@
 import './cardsSelection.scss';
 import { useState } from 'react';
-import { CustomerCard } from '../CustomerCard/CustomerCard';
-import { MyWallet } from '../../MyWallet/MyWallet';
-import RenderElement from '../../../utils/hocs/RenderElement';
 import { useSelector } from 'react-redux';
+import RenderElement from '../../../utils/hocs/RenderElement';
+import { CustomerCard } from '../CustomerCard/CustomerCard';
+import { WalletSelection } from '../WalletSelection/WalletSelection';
 
-export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, dataForTransfer, setShowWarningCardSame = false }) => {
+export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, setShowWarningCardSame = false }) => {
     const customersCards = useSelector(state => state.customersCards.customersCards);
     const [idCard, setIdCard] = useState(1);
     const currentCard = customersCards.find(card => card.id === idCard);
@@ -17,14 +17,17 @@ export const CardsSelection = ({ title, toggleElemVisibility, idSelection, opene
     const chooseCard = (id) => {
         setIdCard(id);
 
-        idSelection === 1 ? setDataForTransfer({ ...dataForTransfer, from: currentCard.number }) : setDataForTransfer({ ...dataForTransfer, to: currentCard.number });
+        idSelection === 1
+            ? setDataForTransfer(prev => ({ ...prev, from: currentCard.number }))
+            : setDataForTransfer(prev => ({ ...prev, to: currentCard.number }));
+
         setShowWarningCardSame && setShowWarningCardSame(false);
         toggleElemVisibility(idSelection);
     }
 
     return (
         <div className="cards-selection">
-            <MyWallet titleText={title} />
+            <WalletSelection titleText={title} />
 
             <div className="card-selection__card" onClick={btnClickHandler}>
                 <div className="card-selection__img">

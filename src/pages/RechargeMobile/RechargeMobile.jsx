@@ -1,6 +1,6 @@
 import './rechargeMobile.scss';
 import { useEffect, useState } from 'react';
-import { AmountField, CardsSelection, FastRechargeMobile, HeaderTransferPages, SuccessCheck, TotalAmount } from '../../components';
+import { AmountField, CardsSelection, MobileField, HeaderContentPages, ConfirmationMark } from '../../components';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
 
@@ -12,7 +12,7 @@ export const RechargeMobile = () => {
     const dispatch = useDispatch();
     const customersCards = useSelector(state => state.customersCards.customersCards);
 
-    const [successCheck, setSuccessCheck] = useState(false);
+    const [confirmationOperation, setConfirmationOperation] = useState(false);
     const [dataForTransfer, setDataForTransfer] = useState({
         from: customersCards[0].number,
         to: '',
@@ -38,39 +38,35 @@ export const RechargeMobile = () => {
 
         dispatch(addHistoryTransfer(dataForTransfer));
         dispatch(topUpMobile(dataForTransfer));
-        setDataForTransfer({ ...dataForTransfer, to: '', sum: '' });
-        setSuccessCheck(true);
+        setDataForTransfer(prev => ({ ...prev, to: '', sum: '' }));
+        setConfirmationOperation(true);
     }
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setSuccessCheck(false);
+            setConfirmationOperation(false);
         }, 2000);
 
         return () => {
             clearInterval(interval);
         }
-    }, [successCheck]);
+    }, [confirmationOperation]);
 
     return (
         <div className='recharge-mobile'>
 
-            <HeaderTransferPages />
+            <HeaderContentPages />
 
             <div className="recharge-main">
                 <form onSubmit={addCardTransfer} className="recharge-form">
-                    <div className='recharge-form__mobile'>
-                        <div className="recharge-form__title-mobile">Номер</div>
 
-                        <FastRechargeMobile
-                            isButton={false}
-                            dataForTransfer={dataForTransfer}
-                            setDataForTransfer={setDataForTransfer}
-                            isEmptyPhone={isEmptyPhone}
-                            setIsEmptyPhone={setIsEmptyPhone}
-                        />
-
-                    </div>
+                    <MobileField
+                        isButton={false}
+                        dataForTransfer={dataForTransfer}
+                        setDataForTransfer={setDataForTransfer}
+                        isEmptyPhone={isEmptyPhone}
+                        setIsEmptyPhone={setIsEmptyPhone}
+                    />
 
                     <AmountField
                         dataForTransfer={dataForTransfer}
@@ -84,7 +80,6 @@ export const RechargeMobile = () => {
                         idSelection={firstElementVisible.id}
                         openedSelection={firstElementVisible.opened}
                         toggleElemVisibility={toggleElemVisibility}
-                        dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
                     />
 
@@ -98,8 +93,8 @@ export const RechargeMobile = () => {
                     <img src="./img/city.svg" alt="city" />
                 </div>
 
-                <RenderElement data={successCheck}>
-                    <SuccessCheck />
+                <RenderElement data={confirmationOperation}>
+                    <ConfirmationMark />
                 </RenderElement>
 
             </div>
