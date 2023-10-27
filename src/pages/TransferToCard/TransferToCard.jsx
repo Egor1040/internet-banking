@@ -1,11 +1,12 @@
 import '../TransferToCard/transferToCard.scss';
 import { useEffect, useState } from 'react';
 import { AmountField, CardsSelection, SuccessCheck } from '../../components';
-import { useDispatch, useSelector } from 'react-redux';
-import { addHistoryTransfer } from '../../store/historyCardSlice';
-import { recalcCardsBalance } from '../../store/customersCardsSlice';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { addHistoryTransfer } from '../../store/historyCardSlice';
+import { transferBetweenCards } from '../../store/customersCardsSlice';
 
 
 export const TransferToCard = () => {
@@ -37,7 +38,7 @@ export const TransferToCard = () => {
         };
 
         dispatch(addHistoryTransfer(dataForTransfer));
-        dispatch(recalcCardsBalance(dataForTransfer));
+        dispatch(transferBetweenCards(dataForTransfer));
         setDataForTransfer({ ...dataForTransfer, sum: '' });
         setSuccessCheck(true);
     }

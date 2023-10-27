@@ -1,25 +1,25 @@
 import './rechargeMobile.scss';
 import { useEffect, useState } from 'react';
 import { AmountField, CardsSelection, FastRechargeMobile, HeaderTransferPages, SuccessCheck, TotalAmount } from '../../components';
-import data from '../../data/data.json';
-
-import { useDispatch } from 'react-redux';
-import { addHistoryTransfer } from '../../store/historyCardSlice';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { addHistoryTransfer } from '../../store/historyCardSlice';
+import { topUpMobile } from '../../store/customersCardsSlice';
+
 export const RechargeMobile = () => {
     const dispatch = useDispatch();
-    const [cardSame, setCardSame] = useState();
+    const customersCards = useSelector(state => state.customersCards.customersCards);
+
     const [successCheck, setSuccessCheck] = useState(false);
     const [dataForTransfer, setDataForTransfer] = useState({
-        from: data.customerCards[0].id,
+        from: customersCards[0].number,
         to: '',
         sum: '',
     });
 
     const { toggleElemVisibility, firstElementVisible } = useToggleElements();
-
     const [isEmptyInput, setIsEmptyInput] = useState(false);
     const [isEmptyPhone, setIsEmptyPhone] = useState(false);
 
@@ -31,20 +31,13 @@ export const RechargeMobile = () => {
             return;
         }
 
-        if (dataForTransfer.sum.slice(0, 1) === '-') {
+        if (!dataForTransfer.sum || dataForTransfer.sum.slice(0, 1) === '-') {
             setIsEmptyInput(true);
             return;
         };
-
-        if (!dataForTransfer.sum) {
-            setIsEmptyInput(true);
-            return;
-        };
-
-        dataForTransfer.from === dataForTransfer.to ? setCardSame(true) : setCardSame(false);
-        if (cardSame) return;
 
         dispatch(addHistoryTransfer(dataForTransfer));
+        dispatch(topUpMobile(dataForTransfer));
         setDataForTransfer({ ...dataForTransfer, to: '', sum: '' });
         setSuccessCheck(true);
     }
@@ -93,7 +86,6 @@ export const RechargeMobile = () => {
                         toggleElemVisibility={toggleElemVisibility}
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
-                        setCardSame={setCardSame}
                     />
 
                     <div className="recharge-form__terms-use">

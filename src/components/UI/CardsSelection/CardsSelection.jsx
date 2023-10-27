@@ -5,7 +5,7 @@ import { MyWallet } from '../../MyWallet/MyWallet';
 import RenderElement from '../../../utils/hocs/RenderElement';
 import { useSelector } from 'react-redux';
 
-export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, dataForTransfer, setShowWarningCardSame }) => {
+export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, dataForTransfer, setShowWarningCardSame = false }) => {
     const customersCards = useSelector(state => state.customersCards.customersCards);
     const [idCard, setIdCard] = useState(1);
     const currentCard = customersCards.find(card => card.id === idCard);
@@ -16,9 +16,9 @@ export const CardsSelection = ({ title, toggleElemVisibility, idSelection, opene
 
     const chooseCard = (id) => {
         setIdCard(id);
-        
+
         idSelection === 1 ? setDataForTransfer({ ...dataForTransfer, from: currentCard.number }) : setDataForTransfer({ ...dataForTransfer, to: currentCard.number });
-        setShowWarningCardSame(false);
+        setShowWarningCardSame && setShowWarningCardSame(false);
         toggleElemVisibility(idSelection);
     }
 

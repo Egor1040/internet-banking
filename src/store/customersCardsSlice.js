@@ -9,15 +9,21 @@ const customersCardsSlice = createSlice({
     },
 
     reducers: {
-        recalcCardsBalance(state, action) {
+        transferBetweenCards(state, action) {
             let cardFrom = state.customersCards.findIndex(el => el.number === action.payload.from);
             let cardTo = state.customersCards.findIndex(el => el.number === action.payload.to);
 
             state.customersCards[cardFrom].balance -= +action.payload.sum;
             state.customersCards[cardTo].balance += +action.payload.sum;
         },
+
+        topUpMobile(state, action) {
+            let cardFrom = state.customersCards.findIndex(el => el.number === action.payload.from);
+
+            state.customersCards[cardFrom].balance -= +action.payload.sum;
+        },
     }
 });
 
-export const { recalcCardsBalance } = customersCardsSlice.actions;
+export const { transferBetweenCards, topUpMobile } = customersCardsSlice.actions;
 export default customersCardsSlice.reducer;
