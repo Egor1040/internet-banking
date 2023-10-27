@@ -23,7 +23,7 @@ export const TransferToCard = () => {
 
     const { toggleElemVisibility, firstElementVisible, secondElementVisible } = useToggleElements();
     const [showWarningCardSame, setShowWarningCardSame] = useState(false);
-    const [isEmptyInput, setIsEmptyInput] = useState(false);
+    const [isEmptyAmount, setIsEmptyAmount] = useState(false);
     const [isNegativeBal, setIsNegativeBal] = useState(false);
 
     const addCardTransfer = (e) => {
@@ -35,7 +35,7 @@ export const TransferToCard = () => {
         };
 
         if (!dataForTransfer.sum || dataForTransfer.sum.slice(0, 1) === '-') {
-            setIsEmptyInput(true);
+            setIsEmptyAmount(true);
             return;
         };
 
@@ -113,8 +113,8 @@ export const TransferToCard = () => {
                     <AmountField
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
-                        setIsEmptyInput={setIsEmptyInput}
-                        isEmptyInput={isEmptyInput}
+                        setIsEmptyAmount={setIsEmptyAmount}
+                        isEmptyAmount={isEmptyAmount}
                     />
 
                     <div className="transfer-form__prompt">

@@ -28,6 +28,14 @@
     gap: 20px;
     width: 328px;
 
+    &__error-same {
+        height: 17px;
+        width: 100%;
+        text-align: start;
+        font-size: 12px;
+        color: var(--error-color);
+    }
+
     &__terms-use {
         font-size: 12px;
 

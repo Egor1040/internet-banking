@@ -18,10 +18,12 @@ export const RechargeMobile = () => {
         to: '',
         sum: '',
     });
+    const currentCard = customersCards.find(el => el.number === dataForTransfer.from);
 
     const { toggleElemVisibility, firstElementVisible } = useToggleElements();
-    const [isEmptyInput, setIsEmptyInput] = useState(false);
+    const [isEmptyAmount, setIsEmptyAmount] = useState(false);
     const [isEmptyPhone, setIsEmptyPhone] = useState(false);
+    const [isNegativeBal, setIsNegativeBal] = useState(false);
 
     const addCardTransfer = (e) => {
         e.preventDefault();
@@ -32,14 +34,20 @@ export const RechargeMobile = () => {
         }
 
         if (!dataForTransfer.sum || dataForTransfer.sum.slice(0, 1) === '-') {
-            setIsEmptyInput(true);
+            setIsEmptyAmount(true);
             return;
         };
+
+        if (currentCard.balance - dataForTransfer.sum < 0) {
+            setIsNegativeBal(true);
+            return;
+        }
 
         dispatch(addHistoryTransfer(dataForTransfer));
         dispatch(topUpMobile(dataForTransfer));
         setDataForTransfer(prev => ({ ...prev, to: '', sum: '' }));
         setConfirmationOperation(true);
+        setIsNegativeBal(false);
     }
 
     useEffect(() => {
@@ -71,8 +79,8 @@ export const RechargeMobile = () => {
                     <AmountField
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
-                        setIsEmptyInput={setIsEmptyInput}
-                        isEmptyInput={isEmptyInput}
+                        setIsEmptyAmount={setIsEmptyAmount}
+                        isEmptyAmount={isEmptyAmount}
                     />
 
                     <CardsSelection
@@ -82,6 +90,10 @@ export const RechargeMobile = () => {
                         toggleElemVisibility={toggleElemVisibility}
                         setDataForTransfer={setDataForTransfer}
                     />
+
+                    <div className='recharge-form__error-same'>
+                        {isNegativeBal && "Недостатньо коштів для проведення платежу"}
+                    </div>
 
                     <div className="recharge-form__terms-use">
                         Натискаючи кнопку "Поповнити" Ви приймаєте умови
