@@ -7,7 +7,7 @@
     transition: all 0.3s ease 0s;
 
     &:hover {
-        background-color: #323232;
+        background-color: var(--bg-color-secondary);
 
         .services-submenu {
             display: block;

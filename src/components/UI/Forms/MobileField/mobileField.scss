@@ -12,14 +12,14 @@
             top: 50%;
             left: 0;
             transform: translateY(-50%);
-            color: #e2e2e2;
+            color: var(--text-color-primary);
 
             &::after {
                 content: "";
                 display: block;
                 width: 1px;
                 height: 24px;
-                background-color: #4d4d4d;
+                background-color: var(--bg-color-element-secondary);
             }
         }
 

@@ -1,16 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
 
 :root {
-    --bg-color-firstly: #0f0f0f;
+    --bg-color-primary: #0f0f0f;
     --bg-color-secondary: #303030;
-    --bg-color-element: #212121;
-    --text-color-firstly: #e2e2e2;
+    --bg-color-element-primary: #212121;
+    --bg-color-element-secondary: #4d4d4d;
+    --text-color-primary: #e2e2e2;
     --text-color-secondary: #ffffff8a;
-    --border-color-firstly: #4d4d4d;
+    --text-color-tertiary: #000000;
+    --border-colo-primary: #4d4d4d;
     --border-color-secondary: #adadad;
-    --error-color: #ff5b5c;
-    --target-color: #8dc641;
-    --hover-target-color: #699f25;
+    --transparent-bg-primary: #ffffff3d;
+    --shadow-color-primary: rgba(0, 0, 0, 0.2);
+    --error-color-primary: #ff5b5c;
+    --target-color-primary: #8dc641;
+    --hover-target-color-primary: #699f25;
+    --hover-target-color-secondary: #39422e;
 }
 
 [data-theme="light"] {
@@ -38,14 +43,14 @@ body {
     }
 
     &::-webkit-scrollbar-track {
-        background: #e2e2e2;
+        background: var(--border-color-secondary);
         box-shadow: 0 0 2px rgb(0, 0, 0, 0.2) inset;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #303030;
+        background: var(--bg-color-secondary);
         border-radius: 10px;
-        border: 2px solid #e2e2e2;
+        border: 2px solid var(--border-color-secondary);
 
         &:hover {
             background: #5a5a5a;
@@ -71,8 +76,8 @@ a {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-color-firstly);
-    color: var(--text-color-firstly);
+    background-color: var(--bg-color-primary);
+    color: var(--text-color-primary);
 }
 
 .container {
@@ -111,7 +116,7 @@ a {
         border: none;
         outline: none;
         font-size: 16px;
-        border-bottom: 1px solid #4d4d4d;
+        border-bottom: 1px solid var(--border-colo-primary);
         transition: all 0.3s ease 0s;
         width: 100%;
         color: #e2e2e2;
@@ -119,24 +124,20 @@ a {
 
         &_empty {
             &.form-styles__input {
-                border-color: #ff5b5c;
+                border-color: var(--error-color-primary);
 
                 &:hover {
-                    border-color: #ff5b5c;
+                    border-color: var(--error-color-primary);
                 }
             }
         }
 
-        &::placeholder {
-            color: #757575;
-        }
-
         &:hover {
-            border-color: #adadad;
+            border-color: var(--border-color-secondary);
         }
 
         &:focus {
-            border-color: #8dc641;
+            border-color: var(--target-color-primary);
         }
     }
 

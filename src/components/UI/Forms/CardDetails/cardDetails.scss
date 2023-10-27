@@ -1,12 +1,12 @@
 .card-details {
     display: flex;
     flex-direction: column;
-    background-color: #303030;
+    background-color: var(--bg-color-secondary);
     padding: 16px;
     gap: 25px;
     box-shadow:
-        rgba(0, 0, 0, 0.12) 0px 2px 4px 0px,
-        rgba(0, 0, 0, 0.12) 0px 0px 4px 0px;
+        var(--shadow-color-primary) 0px 2px 4px 0px,
+        var(--shadow-color-primary) 0px 0px 4px 0px;
     border-radius: 4px;
     cursor: pointer;
 
@@ -38,7 +38,7 @@
         border: none;
         outline: none;
         font-size: 16px;
-        border-bottom: 1px solid #4d4d4d;
+        border-bottom: 1px solid var(--border-colo-primary);
         transition: all 0.3s ease 0s;
         width: 100%;
         color: inherit;
@@ -46,20 +46,16 @@
 
         &_color {
             &.card-details__input::placeholder {
-                color: #e4e4e4;
+                color: var(--text-color-primary);
             }
         }
 
-        &::placeholder {
-            color: #757575;
-        }
-
         &:hover {
-            border-color: #adadad;
+            border-color: var(--bg-color-element-secondary);
         }
 
         &:focus {
-            border-color: #8dc641;
+            border-color: var(--target-color-primary);
         }
     }
 }

@@ -10,7 +10,7 @@
         position: absolute;
         content: '';
         width: 100%;
-        border-bottom: 3px solid #818181;
+        border-bottom: 3px solid var(--transparent-bg-primary);
     }
     &__icon {
         width: 24px;

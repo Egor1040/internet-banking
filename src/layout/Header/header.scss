@@ -1,8 +1,8 @@
 .header {
     font-family: "Open Sans", sans-serif;
     font-weight: normal;
-    background: #303030;
-    border-bottom: 1px solid #595959;
+    background: var(--bg-color-secondary);
+    border-bottom: 1px solid var(--transparent-bg-primary);
     &-container {
         width: 1264px;
         margin: 0 auto;
@@ -27,7 +27,7 @@
         border-radius: 50%;
         transition: background-color 0.3s ease 0s;
         &:hover {
-            background-color: #39422e;
+            background-color: var(--hover-target-color-secondary);
         }
         &__icon {
             width: 100%;
@@ -53,7 +53,7 @@
                 position: absolute;
                 content: "";
                 width: 100%;
-                border-bottom: 3px solid #818181;
+                border-bottom: 3px solid var(--transparent-bg-primary);
             }
             .services-menu {
                 display: block;
@@ -83,7 +83,7 @@
             position: absolute;
             content: "";
             width: 100%;
-            border-bottom: 3px solid #818181;
+            border-bottom: 3px solid var(--transparent-bg-primary);
         }
     }
     &-right {
@@ -118,7 +118,7 @@
     font-weight: 600;
     padding: 11px;
     border-radius: 100px;
-    color: rgb(141, 198, 65);
+    color: var(--target-color-primary);
     background: transparent;
     box-shadow: none;
     white-space: nowrap;
@@ -127,12 +127,11 @@
     border-color: rgb(141, 198, 65);
     transition: background-color 0.3s ease 0s;
     &:hover {
-        background-color: #39422e;
-        fill: #629226;
+        background-color: var(--hover-target-color-secondary);
     }
     &-wrap {
         padding-left: 16px;
-        border-left: 1px solid #595959;
+        border-left: 1px solid var(--transparent-bg-primary);
     }
     &-img {
         width: 24px;

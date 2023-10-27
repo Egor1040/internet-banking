@@ -12,13 +12,13 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        color: #8dc641;
+        color: var(--target-color-primary);
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease 0s;
 
         &:hover {
-            color: #699f24;
+            color: var(--hover-target-color-primary);
         }
     }
 

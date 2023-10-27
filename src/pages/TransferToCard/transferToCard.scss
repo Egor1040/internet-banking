@@ -26,7 +26,7 @@
     &__title {
         font-weight: 600;
         font-size: 20px;
-        color: var(--text-color-firstly);
+        color: var(--text-color-primary);
     }
     &__descr {
         font-size: 14px;
@@ -50,7 +50,7 @@
     flex-direction: column;
     gap: 24px;
     padding: 24px 0;
-    background: var(--bg-color-element);
+    background: var(--bg-color-element-primary);
     &__img {
         width: 160px;
         height: 200px;
@@ -82,7 +82,7 @@
         width: 100%;
         text-align: start;
         font-size: 12px;
-        color: var(--error-color);
+        color: var(--error-color-primary);
     }
     &__descr {
         width: 90%;
@@ -92,15 +92,15 @@
         font-size: 12px;
         &-green {
             cursor: pointer;
-            color: var(--target-color);
+            color: var(--target-color-primary);
             &:hover {
                 text-decoration: underline;
             }
         }
     }
     &__confirmation {
-        background-color: var(--target-color);
-        color: #000;
+        background-color: var(--target-color-primary);
+        color: var(--text-color-tertiary);
         border-radius: 8px;
         padding: 10px 16px;
         font-weight: 600;
@@ -111,7 +111,7 @@
         cursor: pointer;
         font-weight: 600;
         &:hover {
-            background-color: var(--hover-target-color);
+            background-color: var(--hover-target-color-primary);
         }
     }
 }

@@ -3,13 +3,13 @@
     justify-content: center;
     gap: 10px;
     padding: 10px;
-    border-bottom: 1px solid #4d4d4d;
-    color: rgba(255, 255, 255, 0.87);
+    border-bottom: 1px solid var(--border-colo-primary);
+    color: var(--text-color-primary);
     cursor: pointer;
 
     &:hover {
-        color: #8dc641;
-        background-color: #303030;
+        color: var(--target-color-primary);
+        background-color: var(--bg-color-secondary);
     }
 
     &__data-card {

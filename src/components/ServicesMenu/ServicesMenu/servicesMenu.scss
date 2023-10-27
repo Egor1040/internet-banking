@@ -1,13 +1,13 @@
 .services-menu {
     flex: 0 0 auto;
-    background-color: #212121;
+    background-color: var(--bg-color-element-primary);
     width: 280px;
     min-height: 100%;
     position: relative;
     padding: 16px 0;
 
     &_active {
-        background-color: #1b1b1b;
+        background-color: var(--bg-color-primary);
         display: none;
         position: absolute;
         left: 0px;
@@ -15,7 +15,7 @@
         z-index: 2;
 
         .services-submenu {
-            background-color: #1b1b1b;
+            background-color: var(--bg-color-primary);
         }
 
         & .overlay {

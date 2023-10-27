@@ -4,10 +4,10 @@
     top: 0;
     right: -100%;
     z-index: 2;
-    background-color: #212121;
+    background-color: var(--bg-color-element-primary);
     width: 280px;
     min-height: 100%;
     padding: 16px 0;
-    border-left: 1px solid #4d4d4d;
-    box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    border-left: 1px solid var(--border-colo-primary);
+    box-shadow: 5px 0px 5px 0px var(--shadow-color-primary);
 }
