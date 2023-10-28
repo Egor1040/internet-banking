@@ -3,7 +3,9 @@
     font-weight: normal;
     background: var(--bg-color-secondary);
     border-bottom: 1px solid var(--transparent-bg-primary);
-    position: relative;
+    position: sticky;
+    width: 100%;
+    top: 0;
     z-index: 10;
     &-container {
         width: 1264px;
