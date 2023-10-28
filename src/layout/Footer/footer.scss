@@ -7,6 +7,11 @@
     display: flex;
     justify-content: space-between;
     gap: 50px;
+
+    @media (max-width: 580px) {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
 
 .support-info {
@@ -19,6 +24,18 @@
     display: flex;
     color: var(--target-color-primary);
     gap: 25px;
+    white-space: nowrap;
+
+    @media (max-width: 760px) {
+        flex-wrap: wrap;
+        max-width: 300px;
+        row-gap: 10px;
+        column-gap: 15px;
+    }
+
+    @media (max-width: 360px) {
+        flex-direction: column;
+    }
 
     &__item {
         &:hover {
@@ -31,9 +48,23 @@
     display: flex;
     gap: 25px;
 
+    @media (max-width: 960px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    @media (max-width: 360px) {
+        gap: 15px;
+    }
+
     &__item {
         display: flex;
         gap: 15px;
+
+        @media (max-width: 360px) {
+            flex-direction: column;
+            gap: 0px;
+        }
     }
 
     &__item-num {
@@ -55,12 +86,30 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 35px;
+
+    @media (max-width: 800px) {
+        gap: 25px;
+    }
+
+    @media (max-width: 580px) {
+        align-items: flex-start;
+    }
 }
 
 .settings-site {
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    @media (max-width: 580px) {
+        flex-direction: row;
+        gap: 20px;
+    }
 }
 
 .set-language {
@@ -125,6 +174,18 @@
     display: flex;
     gap: 25px;
     color: var(--text-color-secondary);
+    text-align: center;
+    white-space: nowrap;
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    @media (max-width: 580px) {
+        flex-direction: row;
+        gap: 25px;
+    }
 
     &__item {
         display: flex;
