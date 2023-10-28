@@ -1,12 +1,10 @@
 import '../TransferToCard/transferToCard.scss';
-import { useState } from 'react';
-import { AmountField, CardsSelection, ConfirmMark } from '../../components';
+import { AmountField, CardsSelection, ConfirmButton, ConfirmMark, ErrorText } from '../../components';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
 
 import { useSelector } from 'react-redux';
 import useCardOperations from '../../utils/hooks/useCardOperations';
-
 
 export const TransferToCard = () => {
     const customersCards = useSelector(state => state.customersCards.customersCards);
@@ -72,10 +70,7 @@ export const TransferToCard = () => {
                         setCorrectData={setCorrectData}
                     />
 
-                    <div className='transfer-form__error-same'>
-                        { identicalCard ? "Карта відправника і одержувача збігаються" : ''}
-                        { negativeBalance && "Недостатньо коштів для проведення платежу"}
-                    </div>
+                    <ErrorText negativeBalance={negativeBalance} sameCard={identicalCard}/>
 
                     <AmountField
                         dataForTransfer={dataForTransfer}
@@ -84,11 +79,7 @@ export const TransferToCard = () => {
                         emptyAmount={emptyAmount}
                     />
 
-                    <div className="transfer-form__prompt">
-                        Натискаючи кнопку "Переказати" Ви приймаєте умови
-                        <span className='transfer-form__prompt transfer-form__prompt-green'> користування сервісом</span>
-                    </div>
-                    <button className='transfer-form__confirmation'>Переказати</button>
+                    <ConfirmButton action={'Поповнення'}/>
                 </form>
                 <div className="transfer-main__img">
                     <img src="img/arms-with-phone.svg" alt="ads-mobile" />

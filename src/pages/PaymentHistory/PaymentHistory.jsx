@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 export const PaymentHistory = () => {
     const paymentHistory = useSelector(state => state.historyCards.historyCards);
+    const cardNumberRegex = /^(?:4\d{3}\s?\d{4}\s?\d{4}\s?\d{4}|5[1-5]\d{4}\s?\d{4}\s?\d{4}\s?\d{4})$/;
     
     return (
         <div className='payment-history'>
@@ -35,28 +36,39 @@ export const PaymentHistory = () => {
                             </div>
                         </div>
                     </div>
-                    <table className='payment-main__table'>
-                        <thead className='payment-main__table-title'>
-                            <tr className='payment-main__table-subtitle'>
-                                <th className='payment-main__table-item'>Відправник</th>
-                                <th className='payment-main__table-item'>Одержувач</th>
-                                <th className='payment-main__table-item'>Сума</th>
-                            </tr>
-                        </thead>
-                        <tbody className='payment-main__table-info'>
-
-                            {
-                                paymentHistory?.map(({ from, to, sum }) => (
-                                    <tr key={crypto.randomUUID()} className='payment-main__table-body'>
-                                        <td className='payment-main__table-child'>{from}</td>
-                                        <td className='payment-main__table-child'>{to}</td>
-                                        <td className='payment-main__table-child'>{sum} UAH</td>
-                                    </tr>
-                                ))
-                            }
-
-                        </tbody>
-                    </table>
+                    <div className='payment-main__table'>
+                        <div className='payment-main__table-item'>Відправник</div>
+                        <div className='payment-main__table-item'>Одержувач</div>
+                        <div className='payment-main__table-item'>Сума</div>
+                    </div>
+                    <div className='payment-main__table-info'>
+                        {
+                            paymentHistory?.map(({ from, to, sum }) => (
+                                <div key={crypto.randomUUID()} className='payment-main__table-body'>
+                                    <div className='payment-main__table-child'>
+                                        <div className='payment-main__table-container'>
+                                            {cardNumberRegex.test(from) && <div className='payment-main__table-img'>
+                                                <img src="img/icons/icons-with-bg/card.svg" alt="card" />
+                                            </div>}
+                                            <div>{from}</div>
+                                        </div>
+                                    </div>
+                                    <div className='payment-main__table-child'>
+                                        <div className='payment-main__table-container'>
+                                            {cardNumberRegex.test(to) && <div className='payment-main__table-img'>
+                                                <img src="img/icons/icons-with-bg/card.svg" alt="card" />
+                                            </div>}
+                                            {!cardNumberRegex.test(to) && <div className='payment-main__table-img'>
+                                                <img src="img/icons/icons-with-bg/phone.svg" alt="phone" />
+                                            </div>}
+                                            <div>{to}</div>
+                                        </div>
+                                    </div>
+                                    <div className='payment-main__table-child'>{sum} UAH</div>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>
