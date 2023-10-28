@@ -5,7 +5,7 @@ import RenderElement from '../../../utils/hocs/RenderElement';
 import { CustomerCard } from '../CustomerCard/CustomerCard';
 import { WalletSelection } from '../WalletSelection/WalletSelection';
 
-export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, setWarningIdenticalCard = false }) => {
+export const CardsSelection = ({ title, toggleElemVisibility, idSelection, openedSelection, setDataForTransfer, setCorrectData = false }) => {
     const customersCards = useSelector(state => state.customersCards.customersCards);
     const [idCard, setIdCard] = useState(1);
     const currentCard = customersCards.find(card => card.id === idCard);
@@ -21,7 +21,7 @@ export const CardsSelection = ({ title, toggleElemVisibility, idSelection, opene
             ? setDataForTransfer(prev => ({ ...prev, from: customersCards[id - 1].number }))
             : setDataForTransfer(prev => ({ ...prev, to: customersCards[id - 1].number }));
 
-        setWarningIdenticalCard && setWarningIdenticalCard(false);
+            setCorrectData && setCorrectData(prev => ({ ...prev, identicalCard: false}));
         toggleElemVisibility(idSelection);
     }
 

@@ -1,65 +1,32 @@
 import '../TransferToCard/transferToCard.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AmountField, CardsSelection, ConfirmMark } from '../../components';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { addHistoryTransfer } from '../../store/historyCardSlice';
-import { transferBetweenCards } from '../../store/customersCardsSlice';
+import { useSelector } from 'react-redux';
+import useCardOperations from '../../utils/hooks/useCardOperations';
 
 
 export const TransferToCard = () => {
-    const dispatch = useDispatch();
     const customersCards = useSelector(state => state.customersCards.customersCards);
 
-    const [confirmOperation, setConfirmOperation] = useState(false);
-    const [dataForTransfer, setDataForTransfer] = useState({
+    const initialArr = {
         from: customersCards[0].number,
         to: customersCards[0].number,
         sum: '',
-    });
-    const currentCard = customersCards.find(el => el.number === dataForTransfer.from);
+    };
+    const { dataForTransfer,
+            setDataForTransfer,
+            correctData,
+            setCorrectData,
+            handleOperation,
+            confirmOperation,} = useCardOperations(initialArr);
 
     const { toggleElemVisibility, firstElementVisible, secondElementVisible } = useToggleElements();
-    const [warningIdenticalCard, setWarningIdenticalCard] = useState(false);
-    const [isEmptyAmount, setIsEmptyAmount] = useState(false);
-    const [isNegativeBal, setIsNegativeBal] = useState(false);
 
-    const addCardTransfer = (e) => {
-        e.preventDefault();
-
-        if (dataForTransfer.from === dataForTransfer.to) {
-            setWarningIdenticalCard(true);
-            return;
-        };
-
-        if (!dataForTransfer.sum || dataForTransfer.sum.slice(0, 1) === '-') {
-            setIsEmptyAmount(true);
-            return;
-        };
-
-        if(currentCard.balance - dataForTransfer.sum < 0) {
-            setIsNegativeBal(true);
-            return;
-        }
-
-        dispatch(addHistoryTransfer(dataForTransfer));
-        dispatch(transferBetweenCards(dataForTransfer));
-        setDataForTransfer(prev => ({ ...prev, sum: '' }));
-        setConfirmOperation(true);
-        setIsNegativeBal(false);
-    }
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setConfirmOperation(false);
-        }, 2000);
-
-        return () => {
-            clearInterval(interval);
-        }
-    }, [confirmOperation]);
+    const addCardTransfer = handleOperation('transferToCard', customersCards);
+    const { negativeBalance, emptyAmount, identicalCard } = correctData;
 
     return (
         <div className='transfer-cards'>
@@ -93,7 +60,7 @@ export const TransferToCard = () => {
                         openedSelection={firstElementVisible.opened}
                         toggleElemVisibility={toggleElemVisibility}
                         setDataForTransfer={setDataForTransfer}
-                        setWarningIdenticalCard={setWarningIdenticalCard}
+                        setCorrectData={setCorrectData}
                     />
 
                     <CardsSelection
@@ -102,19 +69,19 @@ export const TransferToCard = () => {
                         openedSelection={secondElementVisible.opened}
                         toggleElemVisibility={toggleElemVisibility}
                         setDataForTransfer={setDataForTransfer}
-                        setWarningIdenticalCard={setWarningIdenticalCard}
+                        setCorrectData={setCorrectData}
                     />
 
                     <div className='transfer-form__error-same'>
-                        {warningIdenticalCard && "Карта відправника і одержувача збігаються"}
-                        {isNegativeBal && "Недостатньо коштів для проведення платежу"}
+                        { identicalCard ? "Карта відправника і одержувача збігаються" : ''}
+                        { negativeBalance && "Недостатньо коштів для проведення платежу"}
                     </div>
 
                     <AmountField
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
-                        setIsEmptyAmount={setIsEmptyAmount}
-                        isEmptyAmount={isEmptyAmount}
+                        setCorrectData={setCorrectData}
+                        emptyAmount={emptyAmount}
                     />
 
                     <div className="transfer-form__prompt">

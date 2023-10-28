@@ -58,7 +58,7 @@ const useCardOperations = (initialData) => {
         }));
 
         setConfirmOperation(true);
-        setCorrectData(prev => ({ ...prev, negativeBalance: false }));
+        setCorrectData(prev => ({ ...prev, negativeBalance: false, identicalCard: false }));
     }
 
     useEffect(() => {
