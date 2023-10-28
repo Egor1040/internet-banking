@@ -1,7 +1,7 @@
 import './overlay.scss';
 
-export const Overlay = ({ refOverlay }) => {
+export const Overlay = () => {
     return (
-        <div className="overlay" ref={refOverlay}> </div>
+        <div className="overlay"> </div>
     );
 };

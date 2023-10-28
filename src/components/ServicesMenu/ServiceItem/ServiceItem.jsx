@@ -1,8 +1,9 @@
+import './serviceItem.scss';
 import RenderElement from '../../../utils/hocs/RenderElement';
 import { ServicesSubmenu } from '../ServicesSubmenu/ServicesSubmenu';
-import './serviceItem.scss';
 
-export const ServiceItem = ({title, titleIcon, subMenu }) => {
+export const ServiceItem = ({ title, titleIcon, subMenu }) => {
+
     return (
         <div className="service-item">
             <div className="service-item__title-icon">
@@ -16,7 +17,7 @@ export const ServiceItem = ({title, titleIcon, subMenu }) => {
                 </div>
 
                 <ServicesSubmenu subMenu={subMenu} />
-                
+
             </RenderElement>
 
         </div>

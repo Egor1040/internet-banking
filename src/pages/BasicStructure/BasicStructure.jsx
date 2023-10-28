@@ -1,20 +1,28 @@
 import '../../common.scss';
-import { Overlay } from '../../components';
 import { Footer, Header, Main } from '../../layout';
 import RenderElement from '../../utils/hocs/RenderElement';
-import useOverlay from '../../utils/hooks/useOverlay';
+import useDropDownMenu from '../../utils/hooks/useDropDownMenu';
+import ToolsDropDownMenu from '../../utils/context/ToolsDropDownMenu';
+import { Overlay } from '../../components';
 
 export const BasicStructure = () => {
-    const [refOverlay, isActive] = useOverlay();
+    const [refButtonMenu, isActiveMenu, setIsActiveMenu] = useDropDownMenu();
+    const toolsDropDownMenu = {
+        refButtonMenu,
+        isActiveMenu,
+        setIsActiveMenu,
+    }
 
     return (
-        <div className="wrapper">
-            <Header />
-            <Main />
-            <Footer />
-            <RenderElement data={isActive}>
-                <Overlay refOverlay={refOverlay} />
-            </RenderElement>
-        </div>
+        <ToolsDropDownMenu.Provider value={toolsDropDownMenu}>
+            <div className="wrapper">
+                <Header />
+                <Main />
+                <Footer />
+                <RenderElement data={isActiveMenu}>
+                    <Overlay />
+                </RenderElement>
+            </div>
+        </ToolsDropDownMenu.Provider>
     );
 };

@@ -5,12 +5,12 @@
     min-height: 100%;
     position: relative;
     padding: 16px 0;
+    cursor: initial;
 
     &_active {
-        display: none;
         position: absolute;
         left: 0px;
         top: 65px;
-        z-index: 2;
+        z-index: 10;
     }
 }

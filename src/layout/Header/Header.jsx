@@ -1,8 +1,14 @@
 import '../../layout/Header/header.scss';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import ToolsDropDownMenu from '../../utils/context/ToolsDropDownMenu';
 import { CurrencyExchange, ServicesMenu } from '../../components';
+import RenderElement from '../../utils/hocs/RenderElement';
+
 
 export const Header = () => {
+    const { refButtonMenu, isActiveMenu } = useContext(ToolsDropDownMenu);
+
     return (
         <div className='header'>
             <div className="header-container">
@@ -10,13 +16,16 @@ export const Header = () => {
                     <Link to="/" className="header-logo">
                         <span className='header-logo__icon'></span>
                     </Link>
-                    <div className="header-service">
+                    <div className="header-service" ref={refButtonMenu}>
                         Сервіси
                         <div className="header-service__img">
                             <img src="img/icons/arrow.svg" alt="service-arrow" />
                         </div>
 
-                        <ServicesMenu activeMenu={true} />
+                        <RenderElement data={isActiveMenu}>
+                            <ServicesMenu isActive={isActiveMenu} />
+                        </RenderElement>
+
                     </div>
                     <Link to="payment-history" className="header-history">
                         Історія платежів
