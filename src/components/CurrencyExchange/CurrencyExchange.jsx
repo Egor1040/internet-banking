@@ -14,7 +14,7 @@ export const CurrencyExchange = () => {
             <div className="header-exchange__icon">
                 <img src="img/icons/dollar.svg" alt="USD-icon" />
             </div> 
-            {data.res[0].rateBuy}   /{data.res[0].rateSell}
+            {data.res[0].rateBuy}   / {data.res[0].rateSell}
         </div>
     );
 };
