@@ -13,16 +13,17 @@ export const Header = () => {
                     <div className="header-service">
                         Сервіси
                         <div className="header-service__img">
-                            <img src="img/icons/arrow.svg" alt="service-arrow" /> 
+                            <img src="img/icons/arrow.svg" alt="service-arrow" />
                         </div>
-                        <ServicesMenu activeMenu={true}/> 
+
+                        <ServicesMenu activeMenu={true} />
                     </div>
                     <Link to="payment-history" className="header-history">
                         Історія платежів
                     </Link>
                 </div>
                 <div className="header-right">
-                    <CurrencyExchange/>
+                    <CurrencyExchange />
                     <div className='header-login'>
                         <div className="login-wrap">
                             <button className="login">

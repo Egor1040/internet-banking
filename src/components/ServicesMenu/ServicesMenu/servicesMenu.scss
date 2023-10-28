@@ -7,19 +7,10 @@
     padding: 16px 0;
 
     &_active {
-        background-color: var(--bg-color-primary);
         display: none;
         position: absolute;
         left: 0px;
         top: 65px;
         z-index: 2;
-
-        .services-submenu {
-            background-color: var(--bg-color-primary);
-        }
-
-        & .overlay {
-            display: block;
-        }
     }
 }
