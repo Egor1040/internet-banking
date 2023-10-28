@@ -7,10 +7,10 @@ export const Footer = () => {
                 <div className="footer-content">
                     <div className="support-info">
                         <div className="support-links">
-                            <a className="support-links__item" href='#'>Історія банку</a>
-                            <a className="support-links__item" href='#'>Умови користування</a>
-                            <a className="support-links__item" href='#'>Новини</a>
-                            <a className="support-links__item" href='#'>Корисні ресурси</a>
+                            <div className="support-links__item">Історія банку</div>
+                            <div className="support-links__item">Умови користування</div>
+                            <div className="support-links__item">Новини</div>
+                            <div className="support-links__item">Корисні ресурси</div>
                         </div>
                         <div className="support-contacts">
                             <div className="support-contacts__item">

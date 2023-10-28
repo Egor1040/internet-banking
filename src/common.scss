@@ -85,6 +85,10 @@ a {
     max-width: 1264px;
     margin: 0 auto;
     padding: 24px 32px;
+
+    @media (max-width: 760px) {
+        padding: 16px;
+    }
 }
 
 .form-styles {

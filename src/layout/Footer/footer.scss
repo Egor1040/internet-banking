@@ -38,6 +38,8 @@
     }
 
     &__item {
+        cursor: pointer;
+        
         &:hover {
             text-decoration: underline;
         }

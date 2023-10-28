@@ -22,6 +22,10 @@
         font-weight: 600;
         font-size: 20px;
         color: var(--text-color-primary);
+
+        @media (max-width: 760px) {
+            font-size: 18px;
+        }
     }
 
     &__descr {
@@ -31,6 +35,10 @@
     &__icons-operators {
         display: flex;
         gap: 25px;
+
+        @media (max-width: 760px) {
+            display: none;
+        }
     }
 
     &__icon-operator {

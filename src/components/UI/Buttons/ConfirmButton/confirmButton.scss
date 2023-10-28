@@ -3,6 +3,10 @@
     align-items: center;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: 760px) {
+        align-items: flex-start;
+    }
     
     &__terms-use {
         font-size: 12px;
@@ -29,6 +33,10 @@
         transition: all 0.3s ease 0s;
         cursor: pointer;
         font-weight: 600;
+
+        @media (max-width: 760px) {
+            width: 100%;
+        }
 
         &:hover {
             background-color: var(--hover-target-color-primary);
