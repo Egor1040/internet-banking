@@ -1,64 +1,31 @@
 import './rechargeMobile.scss';
-import { useEffect, useState } from 'react';
-import { AmountField, CardsSelection, MobileField, HeaderContentPages, ConfirmationMark } from '../../components';
+import { AmountField, CardsSelection, MobileField, HeaderContentPages, ConfirmMark, ConfirmButton, ErrorText } from '../../components';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { addHistoryTransfer } from '../../store/historyCardSlice';
-import { topUpMobile } from '../../store/customersCardsSlice';
+import { useSelector } from 'react-redux';
+import useCardOperations from '../../utils/hooks/useCardOperations';
 
 export const RechargeMobile = () => {
-    const dispatch = useDispatch();
+    const { toggleElemVisibility, firstElementVisible } = useToggleElements();
     const customersCards = useSelector(state => state.customersCards.customersCards);
-
-    const [confirmationOperation, setConfirmationOperation] = useState(false);
-    const [dataForTransfer, setDataForTransfer] = useState({
+    const initialData = {
         from: customersCards[0].number,
         to: '',
         sum: '',
-    });
-    const currentCard = customersCards.find(el => el.number === dataForTransfer.from);
-
-    const { toggleElemVisibility, firstElementVisible } = useToggleElements();
-    const [isEmptyAmount, setIsEmptyAmount] = useState(false);
-    const [isEmptyPhone, setIsEmptyPhone] = useState(false);
-    const [isNegativeBal, setIsNegativeBal] = useState(false);
-
-    const addCardTransfer = (e) => {
-        e.preventDefault();
-
-        if (dataForTransfer.to.length < 13) {
-            setIsEmptyPhone(true);
-            return;
-        }
-
-        if (!dataForTransfer.sum || dataForTransfer.sum.slice(0, 1) === '-') {
-            setIsEmptyAmount(true);
-            return;
-        };
-
-        if (currentCard.balance - dataForTransfer.sum < 0) {
-            setIsNegativeBal(true);
-            return;
-        }
-
-        dispatch(addHistoryTransfer(dataForTransfer));
-        dispatch(topUpMobile(dataForTransfer));
-        setDataForTransfer(prev => ({ ...prev, to: '', sum: '' }));
-        setConfirmationOperation(true);
-        setIsNegativeBal(false);
     }
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setConfirmationOperation(false);
-        }, 2000);
+    const {
+        dataForTransfer,
+        setDataForTransfer,
+        correctData,
+        setCorrectData,
+        handleOperation,
+        confirmOperation,
+    } = useCardOperations(initialData);
 
-        return () => {
-            clearInterval(interval);
-        }
-    }, [confirmationOperation]);
+    const addCardTransfer = handleOperation('rechargeMobile', customersCards);
+    const {negativeBalance, emptyAmount, emptyMobile} = correctData;
 
     return (
         <div className='recharge-mobile'>
@@ -72,15 +39,15 @@ export const RechargeMobile = () => {
                         isButton={false}
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
-                        isEmptyPhone={isEmptyPhone}
-                        setIsEmptyPhone={setIsEmptyPhone}
+                        emptyMobile={emptyMobile}
+                        setCorrectData={setCorrectData}
                     />
 
                     <AmountField
                         dataForTransfer={dataForTransfer}
                         setDataForTransfer={setDataForTransfer}
-                        setIsEmptyAmount={setIsEmptyAmount}
-                        isEmptyAmount={isEmptyAmount}
+                        emptyAmount={emptyAmount}
+                        setCorrectData={setCorrectData}
                     />
 
                     <CardsSelection
@@ -91,22 +58,19 @@ export const RechargeMobile = () => {
                         setDataForTransfer={setDataForTransfer}
                     />
 
-                    <div className='recharge-form__error-same'>
-                        {isNegativeBal && "Недостатньо коштів для проведення платежу"}
-                    </div>
+                    <ErrorText
+                        negativeBalance={negativeBalance}
+                    />
 
-                    <div className="recharge-form__terms-use">
-                        Натискаючи кнопку "Поповнити" Ви приймаєте умови
-                        <span> користування сервісом</span>
-                    </div>
-                    <button className='recharge-form__confirmation' type='submit'>Поповнити</button>
+                    <ConfirmButton action={'Поповнити'} />
+
                 </form>
                 <div className="recharge-main__img-decor">
                     <img src="./img/city.svg" alt="city" />
                 </div>
 
-                <RenderElement data={confirmationOperation}>
-                    <ConfirmationMark />
+                <RenderElement data={confirmOperation}>
+                    <ConfirmMark />
                 </RenderElement>
 
             </div>

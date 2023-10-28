@@ -1,6 +1,6 @@
 import '../TransferToCard/transferToCard.scss';
 import { useEffect, useState } from 'react';
-import { AmountField, CardsSelection, ConfirmationMark } from '../../components';
+import { AmountField, CardsSelection, ConfirmMark } from '../../components';
 import RenderElement from '../../utils/hocs/RenderElement';
 import useToggleElements from '../../utils/hooks/useToggleElements';
 
@@ -13,7 +13,7 @@ export const TransferToCard = () => {
     const dispatch = useDispatch();
     const customersCards = useSelector(state => state.customersCards.customersCards);
 
-    const [confirmationOperation, setConfirmationOperation] = useState(false);
+    const [confirmOperation, setConfirmOperation] = useState(false);
     const [dataForTransfer, setDataForTransfer] = useState({
         from: customersCards[0].number,
         to: customersCards[0].number,
@@ -22,7 +22,7 @@ export const TransferToCard = () => {
     const currentCard = customersCards.find(el => el.number === dataForTransfer.from);
 
     const { toggleElemVisibility, firstElementVisible, secondElementVisible } = useToggleElements();
-    const [showWarningCardSame, setShowWarningCardSame] = useState(false);
+    const [warningIdenticalCard, setWarningIdenticalCard] = useState(false);
     const [isEmptyAmount, setIsEmptyAmount] = useState(false);
     const [isNegativeBal, setIsNegativeBal] = useState(false);
 
@@ -30,7 +30,7 @@ export const TransferToCard = () => {
         e.preventDefault();
 
         if (dataForTransfer.from === dataForTransfer.to) {
-            setShowWarningCardSame(true);
+            setWarningIdenticalCard(true);
             return;
         };
 
@@ -47,19 +47,19 @@ export const TransferToCard = () => {
         dispatch(addHistoryTransfer(dataForTransfer));
         dispatch(transferBetweenCards(dataForTransfer));
         setDataForTransfer(prev => ({ ...prev, sum: '' }));
-        setConfirmationOperation(true);
+        setConfirmOperation(true);
         setIsNegativeBal(false);
     }
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setConfirmationOperation(false);
+            setConfirmOperation(false);
         }, 2000);
 
         return () => {
             clearInterval(interval);
         }
-    }, [confirmationOperation]);
+    }, [confirmOperation]);
 
     return (
         <div className='transfer-cards'>
@@ -93,7 +93,7 @@ export const TransferToCard = () => {
                         openedSelection={firstElementVisible.opened}
                         toggleElemVisibility={toggleElemVisibility}
                         setDataForTransfer={setDataForTransfer}
-                        setShowWarningCardSame={setShowWarningCardSame}
+                        setWarningIdenticalCard={setWarningIdenticalCard}
                     />
 
                     <CardsSelection
@@ -102,11 +102,11 @@ export const TransferToCard = () => {
                         openedSelection={secondElementVisible.opened}
                         toggleElemVisibility={toggleElemVisibility}
                         setDataForTransfer={setDataForTransfer}
-                        setShowWarningCardSame={setShowWarningCardSame}
+                        setWarningIdenticalCard={setWarningIdenticalCard}
                     />
 
                     <div className='transfer-form__error-same'>
-                        {showWarningCardSame && "Карта відправника і одержувача збігаються"}
+                        {warningIdenticalCard && "Карта відправника і одержувача збігаються"}
                         {isNegativeBal && "Недостатньо коштів для проведення платежу"}
                     </div>
 
@@ -127,8 +127,8 @@ export const TransferToCard = () => {
                     <img src="img/arms-with-phone.svg" alt="ads-mobile" />
                 </div>
 
-                <RenderElement data={confirmationOperation}>
-                    <ConfirmationMark />
+                <RenderElement data={confirmOperation}>
+                    <ConfirmMark />
                 </RenderElement>
 
             </div>

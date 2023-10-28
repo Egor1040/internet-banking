@@ -1,6 +1,6 @@
 import './mobileField.scss';
 
-export const MobileField = ({ setDataForTransfer, dataForTransfer, setIsEmptyPhone, isEmptyPhone }) => {
+export const MobileField = ({ setDataForTransfer, dataForTransfer, emptyMobile, setCorrectData }) => {
     const getPhoneNumber = (e) => {
         const newValue = e.target.value;
 
@@ -9,7 +9,7 @@ export const MobileField = ({ setDataForTransfer, dataForTransfer, setIsEmptyPho
         };
 
         setDataForTransfer(prev => ({ ...prev, to: `+380${newValue}` }));
-        setIsEmptyPhone(false);
+        setCorrectData(prev => ({...prev, emptyMobile: false}));
     }
 
     return (
@@ -27,7 +27,7 @@ export const MobileField = ({ setDataForTransfer, dataForTransfer, setIsEmptyPho
                 </div>
                 <input
                     type='number'
-                    className={`form-styles__input ${isEmptyPhone ? 'form-styles__input_empty' : ''}`}
+                    className={`form-styles__input ${emptyMobile ? 'form-styles__input_empty' : ''}`}
                     name='mobile'
                     placeholder='000000000'
                     onChange={getPhoneNumber}
