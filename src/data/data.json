@@ -83,7 +83,7 @@
     "slides": [
         {"img": "img/slider/pict1.png", "alt": "slide1"},
         {"img": "img/slider/pict2.png", "alt": "slide2"},
-        {"img": "img/slider/slide3.png", "alt": "slide3"}
+        {"img": "img/slider/pict3.png", "alt": "slide3"}
     ]
 
 }
