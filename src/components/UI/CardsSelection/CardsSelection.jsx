@@ -29,24 +29,24 @@ export const CardsSelection = ({ title, toggleElemVisibility, idSelection, opene
         <div className="cards-selection">
             <WalletSelection titleText={title} />
 
-            <div className="card-selection__card" onClick={btnClickHandler}>
-                <div className="card-selection__img">
+            <div className="cards-selection__card" onClick={btnClickHandler}>
+                <div className="cards-selection__img">
                     <img src={`img/icons/cards/${currentCard.id}.png`} alt="cardbackground" />
                 </div>
-                <div className="card-selection__block">
-                    <div className='card-selection__first-descr'>
-                        <div className="card-selection__end-number">* {currentCard.number.slice(-4)}</div>
-                        <div className="card-selection__name-card">{currentCard.nameCard.slice(0, 15)}...</div>
+                <div className="cards-selection__block">
+                    <div className='cards-selection__first-descr'>
+                        <div className="cards-selection__end-number">* {currentCard.number.slice(-4)}</div>
+                        <div className="cards-selection__name-card">{currentCard.nameCard.slice(0, 15)}...</div>
                     </div>
-                    <div className="card-selection__balance">{currentCard.balance} UAH</div>
+                    <div className="cards-selection__balance">{currentCard.balance} UAH</div>
                 </div>
-                <div className='card-selection__arrow-down'>
+                <div className='cards-selection__arrow-down'>
                     <img src="img/icons/arrow.svg" alt="arrow" />
                 </div>
             </div>
 
             <RenderElement data={openedSelection}>
-                <div className='card-selection__selections'>
+                <div className='cards-selection__selections'>
                     {
                         customersCards.map(card => <CustomerCard
                             key={crypto.randomUUID()}
