@@ -50,6 +50,7 @@ export const PaymentHistory = () => {
                                             {cardNumberRegex.test(from) && <div className='payment-main__table-img'>
                                                 <img src="img/icons/icons-with-bg/card.svg" alt="card" />
                                             </div>}
+                                            <div className='payment-main__table-detail'>Відправник:</div>
                                             <div>{from}</div>
                                         </div>
                                     </div>
@@ -61,10 +62,16 @@ export const PaymentHistory = () => {
                                             {!cardNumberRegex.test(to) && <div className='payment-main__table-img'>
                                                 <img src="img/icons/icons-with-bg/phone.svg" alt="phone" />
                                             </div>}
+                                            <div className='payment-main__table-detail'>Одержувач:</div>
                                             <div>{to}</div>
                                         </div>
                                     </div>
-                                    <div className='payment-main__table-child'>{sum} UAH</div>
+                                    <div className='payment-main__table-child'>
+                                        <div className='payment-main__table-container payment-main__table-container-sum'>
+                                            <div className='payment-main__table-detail'>Сума:</div>
+                                            {sum} UAH
+                                        </div>
+                                    </div>
                                 </div>
                             ))
                         }

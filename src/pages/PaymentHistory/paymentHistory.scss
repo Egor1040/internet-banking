@@ -42,6 +42,9 @@
     flex-direction: column;
     padding: 0 32px 24px 32px;
     background: var(--bg-color-element-primary);
+    @media(max-width: 570px) {
+        padding: 0 10px 24px 10px; 
+    }
     &__block {
         width: 100%;
         border-bottom: 1px solid var(--transparent-bg-primary);
@@ -128,6 +131,13 @@
         display: grid;
         grid-template-columns: repeat(3,1fr);
         justify-items: center;
+        @media(max-width: 900px) {
+            grid-template-columns: repeat(2,1fr);
+            margin-bottom: 16px;
+        }
+        @media(max-width: 570px) {
+            grid-template-columns: 1fr;
+        }
         &-item {
             display: flex;
             align-items: center;
@@ -138,6 +148,10 @@
             border: none;
         }
         &-info {
+            @media(max-width: 900px) {
+                display: flex;
+                flex-direction: column;
+            }
         }
         &-body {
             display: grid;
@@ -147,6 +161,14 @@
             color: #ffffffde;
             &:hover {
                 background-color: var(--bg-color-secondary);
+            }
+            @media(max-width: 900px) {
+                grid-template-columns: 1fr 1fr;
+                margin-bottom: 16px;
+                background-color: var(--bg-color-secondary);
+            }
+            @media(max-width: 570px) {
+                grid-template-columns: 1fr;
             }
         }
         &-child {
@@ -158,16 +180,33 @@
             padding: 8px;
         }
         &-container {
-            min-width: 186px;
+            min-width: 234px;
             display: flex;
             gap: 15px;
             align-items: center;
             justify-content: flex-start;
+            &-sum {
+                justify-content: center;
+                @media(max-width: 570px) {
+                    justify-content: flex-start;
+                }
+            }
         }
         &-img {
             text-align: center;
-           max-width: 32px;
-           max-height: 32px; 
+            max-width: 32px;
+            max-height: 32px;
+            @media(max-width: 570px) {
+                display: none;
+            } 
+        }
+        &-detail {
+            color: var(--text-color-secondary);
+            display: none;
+            @media(max-width: 570px) {
+                min-width: 80px;
+                display: block;
+            }
         }
     }
 }
